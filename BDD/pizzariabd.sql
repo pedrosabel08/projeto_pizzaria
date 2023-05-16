@@ -14,7 +14,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema pizzariabd
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pizzariabd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `pizzariabd` DEFAULT CHARACTER SET utf8mb4;
 USE `pizzariabd` ;
 
 -- -----------------------------------------------------
@@ -63,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`Cliente` (
   `telefoneCliente` VARCHAR(45) NOT NULL,
   `Endereco_idEndereco` INT NOT NULL,
   PRIMARY KEY (`idCliente`, `Endereco_idEndereco`),
-  INDEX `fk_Cliente_Endereco1_idx` (`Endereco_idEndereco` ASC) VISIBLE,
   CONSTRAINT `fk_Cliente_Endereco1`
     FOREIGN KEY (`Endereco_idEndereco`)
     REFERENCES `pizzariabd`.`Endereco` (`idEndereco`)
@@ -94,7 +93,6 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`Produto` (
   `qtdProduto` VARCHAR(45) NOT NULL,
   `Fornecedor_idFornecedor` INT NOT NULL,
   PRIMARY KEY (`idProduto`, `Fornecedor_idFornecedor`),
-  INDEX `fk_Produto_Fornecedor1_idx` (`Fornecedor_idFornecedor` ASC) VISIBLE,
   CONSTRAINT `fk_Produto_Fornecedor1`
     FOREIGN KEY (`Fornecedor_idFornecedor`)
     REFERENCES `pizzariabd`.`Fornecedor` (`idFornecedor`)
@@ -115,9 +113,6 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`Venda` (
   `Cliente_idCliente` INT NOT NULL,
   `Cliente_Endereco_idEndereco` INT NOT NULL,
   PRIMARY KEY (`idVenda`, `Produto_idProduto`, `Funcionario_idFuncionario`, `Cliente_idCliente`, `Cliente_Endereco_idEndereco`),
-  INDEX `fk_Venda_Produto_idx` (`Produto_idProduto` ASC) VISIBLE,
-  INDEX `fk_Venda_Funcionario1_idx` (`Funcionario_idFuncionario` ASC) VISIBLE,
-  INDEX `fk_Venda_Cliente1_idx` (`Cliente_idCliente` ASC, `Cliente_Endereco_idEndereco` ASC) VISIBLE,
   CONSTRAINT `fk_Venda_Produto`
     FOREIGN KEY (`Produto_idProduto`)
     REFERENCES `pizzariabd`.`Produto` (`idProduto`)
