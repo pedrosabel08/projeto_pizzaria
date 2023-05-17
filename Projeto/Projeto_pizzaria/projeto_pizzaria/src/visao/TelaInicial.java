@@ -68,17 +68,15 @@ public class TelaInicial extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGap(300)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 563, GroupLayout.PREFERRED_SIZE)
+					.addGap(150))
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(5)
-							.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 1259, Short.MAX_VALUE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(77)
-							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 563, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
+					.addGap(5)
+					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 1469, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -87,12 +85,12 @@ public class TelaInicial extends JFrame {
 					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 762, GroupLayout.PREFERRED_SIZE))
+							.addGap(134)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 564, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(68)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 564, GroupLayout.PREFERRED_SIZE)))
-					.addGap(43))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(10))
 		);
 		panel_1.setLayout(null);
 		
@@ -100,13 +98,13 @@ public class TelaInicial extends JFrame {
 		lblNewLabel_1.setBackground(Color.YELLOW);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Segoe UI", Font.BOLD, 25));
-		lblNewLabel_1.setBounds(428, 27, 402, 54);
+		lblNewLabel_1.setBounds(797, 25, 402, 54);
 		panel_1.add(lblNewLabel_1);
 		
 		JButton btnFuncionario = new JButton("Funcionario");
-		btnFuncionario.setForeground(Color.WHITE);
+		btnFuncionario.setForeground(new Color(255, 255, 255));
 		btnFuncionario.setBackground(Color.DARK_GRAY);
-		btnFuncionario.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		btnFuncionario.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		btnFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -115,27 +113,27 @@ public class TelaInicial extends JFrame {
 		JButton btnFornecedor = new JButton("Fornecedor");
 		btnFornecedor.setForeground(Color.WHITE);
 		btnFornecedor.setBackground(Color.DARK_GRAY);
-		btnFornecedor.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		btnFornecedor.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnCliente = new JButton("Cliente");
 		btnCliente.setForeground(Color.WHITE);
 		btnCliente.setBackground(Color.DARK_GRAY);
-		btnCliente.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		btnCliente.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnEndereco = new JButton("Endereço");
 		btnEndereco.setForeground(Color.WHITE);
 		btnEndereco.setBackground(Color.DARK_GRAY);
-		btnEndereco.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		btnEndereco.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnProduto = new JButton("Produto");
 		btnProduto.setForeground(Color.WHITE);
 		btnProduto.setBackground(Color.DARK_GRAY);
-		btnProduto.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		btnProduto.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnVenda = new JButton("Venda");
 		btnVenda.setForeground(Color.WHITE);
 		btnVenda.setBackground(Color.DARK_GRAY);
-		btnVenda.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		btnVenda.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
@@ -153,17 +151,17 @@ public class TelaInicial extends JFrame {
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(30)
+					.addGap(50)
 					.addComponent(btnFuncionario, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(80)
+					.addGap(110)
 					.addComponent(btnFornecedor, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(80)
+					.addGap(110)
 					.addComponent(btnCliente, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(80)
+					.addGap(110)
 					.addComponent(btnEndereco, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(80)
+					.addGap(110)
 					.addComponent(btnProduto, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(80)
+					.addGap(110)
 					.addComponent(btnVenda, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(56, Short.MAX_VALUE))
 		);
