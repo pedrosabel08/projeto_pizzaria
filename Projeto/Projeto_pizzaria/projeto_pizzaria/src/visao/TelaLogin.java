@@ -22,6 +22,7 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.border.MatteBorder;
 
 public class TelaLogin extends JFrame {
 
@@ -60,30 +61,48 @@ public class TelaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/imagens/CasaPizza.png")));
+		lblNewLabel.setBounds(323, 123, 260, 244);
+		contentPane.add(lblNewLabel);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new MatteBorder(0, 0, 5, 5, (Color) new Color(204, 102, 0)));
+		panel.setBackground(new Color(255, 204, 102));
+		panel.setBounds(72, 69, 185, 298);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setBounds(41, 11, 103, 30);
+		panel.add(lblNome);
 		lblNome.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNome.setForeground(Color.WHITE);
-		lblNome.setBounds(263, 83, 103, 30);
-		contentPane.add(lblNome);
-		
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		lblSenha.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSenha.setForeground(Color.WHITE);
-		lblSenha.setBounds(263, 193, 103, 30);
-		contentPane.add(lblSenha);
+		lblNome.setForeground(Color.BLACK);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(243, 124, 143, 36);
-		contentPane.add(txtNome);
+		txtNome.setBackground(Color.BLACK);
+		txtNome.setForeground(Color.WHITE);
+		txtNome.setBounds(21, 50, 143, 36);
+		panel.add(txtNome);
 		txtNome.setColumns(10);
 		
+		JLabel lblSenha = new JLabel("Senha:");
+		lblSenha.setBounds(41, 119, 103, 30);
+		panel.add(lblSenha);
+		lblSenha.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		lblSenha.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSenha.setForeground(Color.BLACK);
+		
 		txtSenha = new JPasswordField();
-		txtSenha.setBounds(243, 234, 143, 36);
-		contentPane.add(txtSenha);
+		txtSenha.setBackground(Color.BLACK);
+		txtSenha.setForeground(Color.WHITE);
+		txtSenha.setBounds(21, 160, 143, 36);
+		panel.add(txtSenha);
 		
 		JButton btnContinuar = new JButton("Continuar");
+		btnContinuar.setBounds(34, 247, 116, 30);
+		panel.add(btnContinuar);
 		btnContinuar.setForeground(Color.WHITE);
 		btnContinuar.setBackground(Color.DARK_GRAY);
 		btnContinuar.addActionListener(new ActionListener() {
@@ -127,12 +146,5 @@ public class TelaLogin extends JFrame {
 			
 			}
 		});
-		btnContinuar.setBounds(257, 321, 116, 30);
-		contentPane.add(btnContinuar);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/imagens/CasaPizza.png")));
-		lblNewLabel.setBounds(473, 177, 125, 129);
-		contentPane.add(lblNewLabel);
 	}
 }
