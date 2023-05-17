@@ -136,3 +136,5 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 insert into Admin(nome, senha) values ("Pedro", "12345");
+insert into Admin(nome, senha) values ("Arthur", "12345");
+insert into Admin(nome, senha) values ("Vitor", "12345");
