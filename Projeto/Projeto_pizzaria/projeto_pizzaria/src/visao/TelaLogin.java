@@ -18,6 +18,10 @@ import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class TelaLogin extends JFrame {
 
@@ -33,6 +37,7 @@ public class TelaLogin extends JFrame {
 			public void run() {
 				try {
 					TelaLogin frame = new TelaLogin();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,32 +50,42 @@ public class TelaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaLogin() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 646, 476);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Nome:");
-		lblNewLabel.setBounds(90, 88, 103, 30);
-		contentPane.add(lblNewLabel);
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNome.setForeground(Color.WHITE);
+		lblNome.setBounds(263, 83, 103, 30);
+		contentPane.add(lblNome);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(90, 207, 103, 30);
+		lblSenha.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		lblSenha.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSenha.setForeground(Color.WHITE);
+		lblSenha.setBounds(263, 193, 103, 30);
 		contentPane.add(lblSenha);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(90, 129, 143, 44);
+		txtNome.setBounds(243, 124, 143, 36);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 		
 		txtSenha = new JPasswordField();
-		txtSenha.setBounds(90, 248, 143, 36);
+		txtSenha.setBounds(243, 234, 143, 36);
 		contentPane.add(txtSenha);
 		
 		JButton btnContinuar = new JButton("Continuar");
+		btnContinuar.setForeground(Color.WHITE);
+		btnContinuar.setBackground(Color.DARK_GRAY);
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -112,7 +127,12 @@ public class TelaLogin extends JFrame {
 			
 			}
 		});
-		btnContinuar.setBounds(347, 184, 89, 23);
+		btnContinuar.setBounds(257, 321, 116, 30);
 		contentPane.add(btnContinuar);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/imagens/CasaPizza.png")));
+		lblNewLabel.setBounds(473, 177, 125, 129);
+		contentPane.add(lblNewLabel);
 	}
 }
