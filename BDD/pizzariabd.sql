@@ -76,7 +76,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`produto` (
   `idProduto` INT(11) NOT NULL AUTO_INCREMENT,
   `nomeProduto` VARCHAR(45) NOT NULL,
-  `precoProduto` VARCHAR(45) NOT NULL,
+  `precoProduto` DOUBLE NOT NULL,
   `qtdProduto` VARCHAR(45) NOT NULL,
   `Fornecedor_idFornecedor` INT(11) NOT NULL,
   PRIMARY KEY (`idProduto`, `Fornecedor_idFornecedor`),
