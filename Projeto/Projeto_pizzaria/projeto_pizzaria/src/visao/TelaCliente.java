@@ -17,6 +17,8 @@ import javax.swing.table.DefaultTableModel;
 import controle.ClienteBD;
 import modelo.Cliente;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class TelaCliente extends JFrame {
@@ -61,7 +63,7 @@ public class TelaCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(250, 66, 689, 315);
+		scrollPane.setBounds(429, 62, 1077, 350);
 		contentPane.add(scrollPane);
 
 		tabelaClientes = new JTable();
@@ -99,6 +101,20 @@ public class TelaCliente extends JFrame {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
 
+		tabelaClientes.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                	int row = tabelaClientes.getSelectedRow();
+                    txtIdCliente.setText(tabelaClientes.getValueAt(row, 0).toString());
+                    txtNome.setText(tabelaClientes.getValueAt(row, 1).toString());
+                    txtTelefone.setText(tabelaClientes.getValueAt(row, 2).toString());
+                    txtRua.setText(tabelaClientes.getValueAt(row, 3).toString());
+                    txtBairro.setText(tabelaClientes.getValueAt(row, 4).toString());
+                    txtNumero.setText(tabelaClientes.getValueAt(row, 5).toString());
+                    txtReferencia.setText(tabelaClientes.getValueAt(row, 6).toString());
+                }
+            }
+        });
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setBounds(457, 491, 46, 14);
 		contentPane.add(lblNome);
@@ -175,7 +191,7 @@ public class TelaCliente extends JFrame {
 				listarValores();
 			}
 		});
-		btnCadastrar.setBounds(645, 481, 89, 23);
+		btnCadastrar.setBounds(721, 832, 89, 23);
 		contentPane.add(btnCadastrar);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -186,17 +202,18 @@ public class TelaCliente extends JFrame {
 				listarValores();
 			}
 		});
-		btnAlterar.setBounds(645, 571, 89, 23);
+		btnAlterar.setBounds(852, 832, 89, 23);
 		contentPane.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				excluirCliente();
+				LimparCampos();
 				listarValores();
 			}
 		});
-		btnExcluir.setBounds(645, 636, 89, 23);
+		btnExcluir.setBounds(992, 819, 89, 23);
 		contentPane.add(btnExcluir);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -205,37 +222,8 @@ public class TelaCliente extends JFrame {
 				LimparCampos();
 			}
 		});
-		btnLimpar.setBounds(645, 680, 89, 23);
-		contentPane.add(btnLimpar);
-		
-		JButton btnSelecionar = new JButton("Selecionar");
-		btnSelecionar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelecionarCampos();
-			}
-		});
-		btnSelecionar.setBounds(645, 515, 89, 23);
-		contentPane.add(btnSelecionar);}
-
-
-	private void SelecionarCampos() {
-
-		if(tabelaClientes.getSelectedRowCount() > 0) {
-
-			int setar = tabelaClientes.getSelectedRow();
-
-			txtIdCliente.setText(tabelaClientes.getModel().getValueAt(setar, 0).toString());
-			txtNome.setText(tabelaClientes.getModel().getValueAt(setar, 1).toString());
-			txtTelefone.setText(tabelaClientes.getModel().getValueAt(setar, 2).toString());
-			txtRua.setText(tabelaClientes.getModel().getValueAt(setar, 3).toString());
-			txtBairro.setText(tabelaClientes.getModel().getValueAt(setar, 4).toString());
-			txtNumero.setText(tabelaClientes.getModel().getValueAt(setar, 5).toString());
-			txtReferencia.setText(tabelaClientes.getModel().getValueAt(setar, 6).toString());
-		}
-		else {
-			JOptionPane.showMessageDialog(null,"Clique em uma linha da tabela para selecionar!");
-		}
-	}
+		btnLimpar.setBounds(1129, 819, 89, 23);
+		contentPane.add(btnLimpar);}
 
 	private void CadastrarCliente() {
 		String nome, telefone, rua, bairro, referencia;
