@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`cliente` (
   PRIMARY KEY (`idCliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
-
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`fornecedor`
 -- -----------------------------------------------------
