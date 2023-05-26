@@ -62,13 +62,13 @@ DEFAULT CHARACTER SET = utf8mb4;
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`funcionario` (
   `idFuncionario` INT(11) NOT NULL AUTO_INCREMENT,
   `nomeFuncionario` VARCHAR(45) NOT NULL,
+   `telefoneFuncionario` VARCHAR(45) NOT NULL,
   `cargoFuncionario` VARCHAR(45) NOT NULL,
   `salarioFuncionario` VARCHAR(45) NOT NULL,
   `cpfFuncionario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idFuncionario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
-
 
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`produto`
@@ -117,3 +117,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+insert into admin (nome, senha) values ('Pedro', '12345');
+insert into admin (nome, senha) values ('Arthur', '12345');
+insert into admin (nome, senha) values ('Vitor', '12345');
