@@ -4,8 +4,7 @@ import java.util.Date;
 
 public class Funcionario {
 	private int id;
-	private String nome, cargo, salario;
-	private Date data;
+	private String nome, cargo, salario, telefone, cpf;
 	public int getId() {
 		return id;
 	}
@@ -30,11 +29,17 @@ public class Funcionario {
 	public void setSalario(String salario) {
 		this.salario = salario;
 	}
-	public Date getData() {
-		return data;
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setData(Date data) {
-		this.data = data;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 

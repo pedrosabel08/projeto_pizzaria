@@ -107,30 +107,56 @@ public class TelaInicial extends JFrame {
 		btnFuncionario.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		btnFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaFuncionario frame = new TelaFuncionario();
+				frame.setVisible(true);
+				dispose();
 			}
 		});
 		
 		JButton btnFornecedor = new JButton("Fornecedor");
+		btnFornecedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaFornecedor frame = new TelaFornecedor();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
 		btnFornecedor.setForeground(Color.WHITE);
 		btnFornecedor.setBackground(Color.DARK_GRAY);
 		btnFornecedor.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnCliente = new JButton("Cliente");
+		btnCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				TelaCliente frame = new TelaCliente();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
 		btnCliente.setForeground(Color.WHITE);
 		btnCliente.setBackground(Color.DARK_GRAY);
 		btnCliente.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
-		JButton btnEndereco = new JButton("Endereço");
-		btnEndereco.setForeground(Color.WHITE);
-		btnEndereco.setBackground(Color.DARK_GRAY);
-		btnEndereco.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		
 		JButton btnProduto = new JButton("Produto");
+		btnProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaProduto frame = new TelaProduto();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
 		btnProduto.setForeground(Color.WHITE);
 		btnProduto.setBackground(Color.DARK_GRAY);
 		btnProduto.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnVenda = new JButton("Venda");
+		btnVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaVenda frame = new TelaVenda();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
 		btnVenda.setForeground(Color.WHITE);
 		btnVenda.setBackground(Color.DARK_GRAY);
 		btnVenda.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -140,12 +166,11 @@ public class TelaInicial extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(60)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnVenda, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-						.addComponent(btnEndereco, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-						.addComponent(btnCliente, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-						.addComponent(btnFuncionario, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnFornecedor, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(btnProduto, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+						.addComponent(btnVenda, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+						.addComponent(btnCliente, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+						.addComponent(btnFuncionario, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+						.addComponent(btnFornecedor, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+						.addComponent(btnProduto, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
 					.addGap(50))
 		);
 		gl_panel.setVerticalGroup(
@@ -157,8 +182,6 @@ public class TelaInicial extends JFrame {
 					.addComponent(btnFornecedor, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 					.addGap(110)
 					.addComponent(btnCliente, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(110)
-					.addComponent(btnEndereco, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 					.addGap(110)
 					.addComponent(btnProduto, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 					.addGap(110)
