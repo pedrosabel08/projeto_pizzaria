@@ -160,31 +160,50 @@ public class TelaInicial extends JFrame {
 		btnVenda.setForeground(Color.WHITE);
 		btnVenda.setBackground(Color.DARK_GRAY);
 		btnVenda.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		
+		JButton btnPedido = new JButton("Pedido");
+		btnPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaPedido frame = new TelaPedido();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		btnPedido.setForeground(Color.WHITE);
+		btnPedido.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		btnPedido.setBackground(Color.DARK_GRAY);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
+				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
 					.addGap(60)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnVenda, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-						.addComponent(btnCliente, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-						.addComponent(btnFuncionario, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-						.addComponent(btnFornecedor, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-						.addComponent(btnProduto, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
-					.addGap(50))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addComponent(btnPedido, GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+							.addGap(50))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnVenda, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+								.addComponent(btnCliente, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+								.addComponent(btnFuncionario, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+								.addComponent(btnFornecedor, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+								.addComponent(btnProduto, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+							.addGap(50))))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(50)
 					.addComponent(btnFuncionario, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(110)
+					.addGap(80)
 					.addComponent(btnFornecedor, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(110)
+					.addGap(80)
 					.addComponent(btnCliente, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(110)
+					.addGap(80)
 					.addComponent(btnProduto, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-					.addGap(110)
+					.addGap(80)
+					.addComponent(btnPedido, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+					.addGap(80)
 					.addComponent(btnVenda, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(56, Short.MAX_VALUE))
 		);
