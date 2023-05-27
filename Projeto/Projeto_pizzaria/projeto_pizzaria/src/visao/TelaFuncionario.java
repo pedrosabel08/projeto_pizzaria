@@ -5,14 +5,17 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 import controle.FuncionarioBD;
 import modelo.Funcionario;
@@ -20,6 +23,7 @@ import modelo.Funcionario;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
@@ -33,10 +37,10 @@ public class TelaFuncionario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNome;
-	private JTextField txtTelefone;
+	private JFormattedTextField txtTelefone;
 	private JTextField txtCargo;
 	private JTextField txtSalario;
-	private JTextField txtCpf;
+	private JFormattedTextField txtCpf;
 	private JTextField txtId;
 	private JTable tabelaFunc;
 
@@ -85,7 +89,7 @@ public class TelaFuncionario extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"ID", "Nome", "Cargo", "Salario", "CPF"
+				"ID", "Nome", "Telefone", "Cargo", "Salario", "CPF"
 			}
 		));
 		scrollPane.setViewportView(tabelaFunc);
@@ -165,13 +169,23 @@ public class TelaFuncionario extends JFrame {
 		lblTelefone.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTelefone.setForeground(Color.WHITE);
 
-		txtTelefone = new JTextField();
+		txtTelefone = new JFormattedTextField();
 		txtTelefone.setForeground(Color.WHITE);
 		txtTelefone.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtTelefone.setBackground(Color.DARK_GRAY);
 		txtTelefone.setBounds(748, 896, 145, 31);
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
+		
+		MaskFormatter maskTelefone;
+		try {
+			maskTelefone = new MaskFormatter("(##)#####-####");
+			maskTelefone.install(txtTelefone);
+		} catch (ParseException e1) {
+			
+			e1.printStackTrace();
+		}
+		
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
@@ -234,13 +248,22 @@ public class TelaFuncionario extends JFrame {
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCpf.setForeground(Color.WHITE);
 
-		txtCpf = new JTextField();
+		txtCpf = new JFormattedTextField();
 		txtCpf.setForeground(Color.WHITE);
 		txtCpf.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtCpf.setBackground(Color.DARK_GRAY);
 		txtCpf.setBounds(1362, 896, 127, 31);
 		contentPane.add(txtCpf);
 		txtCpf.setColumns(10);
+		
+		MaskFormatter maskCPF;
+		try {
+			maskCPF = new MaskFormatter("###.###.###-##");
+			maskCPF.install(txtCpf);
+		} catch (ParseException e1) {
+			
+			e1.printStackTrace();
+		}
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
@@ -321,7 +344,8 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(btnLimpar);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setBackground(Color.DARK_GRAY);
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setBounds(10, 11, 1924, 1050);
 		contentPane.add(lblNewLabel);
 		
@@ -330,7 +354,21 @@ public class TelaFuncionario extends JFrame {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setBounds(434, 11, 1055, 63);
-		contentPane.add(lblNewLabel_1);}
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("X");
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial frame = new TelaInicial();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnNewButton.setBounds(1512, 77, 51, 40);
+		contentPane.add(btnNewButton);}
 
 	private void CadastrarFuncionario() {
 		String nome, telefone, cargo, salario, cpf;
