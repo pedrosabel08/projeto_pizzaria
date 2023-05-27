@@ -14,26 +14,28 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema pizzariabd
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pizzariabd` DEFAULT CHARACTER SET utf8mb4 ;
+CREATE SCHEMA IF NOT EXISTS `pizzariabd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `pizzariabd` ;
 
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`admin`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`admin` (
-  `idAdmin` INT(11) NOT NULL AUTO_INCREMENT,
+  `idAdmin` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAdmin`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8mb4;
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
 
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`cliente` (
-  `idCliente` INT(11) NOT NULL AUTO_INCREMENT,
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
   `nomeCliente` VARCHAR(45) NOT NULL,
   `telefoneCliente` VARCHAR(45) NOT NULL,
   `rua` VARCHAR(45) NOT NULL,
@@ -42,76 +44,93 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`cliente` (
   `referencia` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`fornecedor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`fornecedor` (
-  `idFornecedor` INT(11) NOT NULL AUTO_INCREMENT,
+  `idFornecedor` INT NOT NULL AUTO_INCREMENT,
   `nomeFornecedor` VARCHAR(45) NOT NULL,
   `cnpjFornecedor` VARCHAR(45) NOT NULL,
   `telefoneFornecedor` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idFornecedor`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`funcionario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`funcionario` (
-  `idFuncionario` INT(11) NOT NULL AUTO_INCREMENT,
+  `idFuncionario` INT NOT NULL AUTO_INCREMENT,
   `nomeFuncionario` VARCHAR(45) NOT NULL,
-   `telefoneFuncionario` VARCHAR(45) NOT NULL,
+  `telefoneFuncionario` VARCHAR(45) NOT NULL,
   `cargoFuncionario` VARCHAR(45) NOT NULL,
   `salarioFuncionario` VARCHAR(45) NOT NULL,
   `cpfFuncionario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idFuncionario`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
 
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`produto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`produto` (
-  `idProduto` INT(11) NOT NULL AUTO_INCREMENT,
+  `idProduto` INT NOT NULL AUTO_INCREMENT,
   `nomeProduto` VARCHAR(45) NOT NULL,
   `precoProduto` DOUBLE NOT NULL,
   `qtdProduto` VARCHAR(45) NOT NULL,
-  `Fornecedor_idFornecedor` INT(11) NOT NULL,
+  `Fornecedor_idFornecedor` INT NOT NULL,
   PRIMARY KEY (`idProduto`, `Fornecedor_idFornecedor`),
   CONSTRAINT `fk_Produto_Fornecedor1`
     FOREIGN KEY (`Fornecedor_idFornecedor`)
-    REFERENCES `pizzariabd`.`fornecedor` (`idFornecedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `pizzariabd`.`fornecedor` (`idFornecedor`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
+
+-- -----------------------------------------------------
+-- Table `pizzariabd`.`pedido`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pizzariabd`.`pedido` (
+  `idPedido` INT NOT NULL AUTO_INCREMENT,
+  `tamanhoPizza` VARCHAR(45) NULL,
+  `saborPizza` VARCHAR(45) NULL,
+  `bebida` VARCHAR(45) NULL,
+  `preco` VARCHAR(45) NULL,
+  PRIMARY KEY (`idPedido`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `pizzariabd`.`venda`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzariabd`.`venda` (
-  `idVenda` INT(11) NOT NULL AUTO_INCREMENT,
+  `idVenda` INT NOT NULL AUTO_INCREMENT,
   `valorVenda` VARCHAR(45) NOT NULL,
   `dataVenda` DATE NOT NULL,
-  `Produto_idProduto` INT(11) NOT NULL,
-  `Funcionario_idFuncionario` INT(11) NOT NULL,
-  `Cliente_idCliente` INT(11) NOT NULL,
-  PRIMARY KEY (`idVenda`, `Produto_idProduto`, `Funcionario_idFuncionario`, `Cliente_idCliente`),
+  `idFuncionario` INT NOT NULL,
+  `idCliente` INT NOT NULL,
+  `idPedido` INT NOT NULL,
+  PRIMARY KEY (`idVenda`),
   CONSTRAINT `fk_Venda_Funcionario1`
-    FOREIGN KEY (`Funcionario_idFuncionario`)
-    REFERENCES `pizzariabd`.`funcionario` (`idFuncionario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Venda_Produto`
-    FOREIGN KEY (`Produto_idProduto`)
-    REFERENCES `pizzariabd`.`produto` (`idProduto`)
+    FOREIGN KEY (`idFuncionario`)
+    REFERENCES `pizzariabd`.`funcionario` (`idFuncionario`),
+  CONSTRAINT `fk_venda_pedido1`
+    FOREIGN KEY (`idPedido`)
+    REFERENCES `pizzariabd`.`pedido` (`idPedido`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
