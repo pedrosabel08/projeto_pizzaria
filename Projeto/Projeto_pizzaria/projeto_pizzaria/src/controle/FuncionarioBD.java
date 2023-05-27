@@ -20,7 +20,7 @@ public class FuncionarioBD {
 	ArrayList<Funcionario> lista = new ArrayList<>();
 	
 	public void cadastrarFuncionario(Funcionario funcionario) {
-		String sql = "insert into funcionario (nomeFuncionario, cargoFuncionario, salarioFuncionario, dataFuncionario) values (?,?,?,?)";
+		String sql = "insert into funcionario (nomeFuncionario, telefoneFuncionario, cargoFuncionario, salarioFuncionario, cpfFuncionario) values (?,?,?,?,?)";
 		
 		conn = new Conexao().faz_conexao();
 		
@@ -28,17 +28,16 @@ public class FuncionarioBD {
 			
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, funcionario.getNome());
-			stmt.setString(2, funcionario.getCargo());
-			stmt.setString(3, funcionario.getSalario());
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			stmt.setString(4, dateFormat.format(funcionario.getData()));
+			stmt.setString(2, funcionario.getTelefone());
+			stmt.setString(3, funcionario.getCargo());
+			stmt.setString(4, funcionario.getSalario());
+			stmt.setString(5, funcionario.getCpf());
 			
-
-
 			
 			stmt.execute();
 			stmt.close();
-			
+
+		
 			JOptionPane.showMessageDialog(null, "Funcionario inserido com sucesso!");
 			
 		} catch (Exception e) {
@@ -60,10 +59,10 @@ public class FuncionarioBD {
 				Funcionario funcionario = new Funcionario();
 				funcionario.setId(rs.getInt("idFuncionario"));
 				funcionario.setNome(rs.getString("nomeFuncionario"));
+				funcionario.setTelefone(rs.getString("telefoneFuncionario"));
 				funcionario.setCargo(rs.getString("cargoFuncionario"));
 				funcionario.setSalario(rs.getString("salarioFuncionario"));
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-				funcionario.setData(rs.getDate("dataFuncionario"));
+				funcionario.setCpf(rs.getString("cpfFuncionario"));
 				
 				lista.add(funcionario);
 				
@@ -75,7 +74,7 @@ public class FuncionarioBD {
 	}
 	
 	public void alterarFuncionario(Funcionario funcionario) {
-		String sql = "update funcionario set nomeFuncionaro = ?, cargoFuncionario = ?, salarioFuncionario = ?, dataFuncionario = ? where idFuncionario = ?";
+		String sql = "update funcionario set nomeFuncionario = ?, telefoneFuncionario = ?, cargoFuncionario = ?, salarioFuncionario = ?, cpfFuncionario = ? where idFuncionario = ?";
 		
 		conn = new Conexao().faz_conexao();
 		
@@ -83,11 +82,11 @@ public class FuncionarioBD {
 			
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, funcionario.getNome());
-			stmt.setString(2, funcionario.getCargo());
-			stmt.setString(3, funcionario.getSalario());
-			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			stmt.setString(4, dateFormat.format(funcionario.getData()));
-			stmt.setInt(5, funcionario.getId());
+			stmt.setString(2, funcionario.getTelefone());
+			stmt.setString(3, funcionario.getCargo());
+			stmt.setString(4, funcionario.getSalario());
+			stmt.setString(5, funcionario.getCpf());
+			stmt.setInt(6, funcionario.getId());
 			
 			stmt.execute();
 			stmt.close();
