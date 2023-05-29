@@ -9,10 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 import modelo.Pedido;
 import controle.PedidoBD;
@@ -37,6 +39,7 @@ public class TelaPedido extends JFrame {
 	private JTextField txtPreco;
 	private JTextField txtID;
 	private JTable tabelaPedido;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -318,7 +321,25 @@ public class TelaPedido extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaPedido.class.getResource("/imagens/pedido.png")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(81, 105, 263, 240);
-		contentPane.add(lblNewLabel);}
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(1592, 412, 188, 31);
+		contentPane.add(textField);
+		
+		JButton btnNewButton_1 = new JButton("Filtrar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String filtro = textField.getText();
+				filtrarTabela(filtro);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.setBackground(Color.DARK_GRAY);
+		btnNewButton_1.setBounds(1592, 449, 188, 40);
+		contentPane.add(btnNewButton_1);}
 
 	private void CadastrarPedido() {
 		String sabor, tamanho, bebida;
@@ -402,5 +423,11 @@ public class TelaPedido extends JFrame {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
 
+	}
+	private void filtrarTabela(String filtro) {
+	    DefaultTableModel model = (DefaultTableModel) tabelaPedido.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaPedido.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro));
 	}
 }
