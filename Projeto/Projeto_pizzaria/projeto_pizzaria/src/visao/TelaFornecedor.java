@@ -29,6 +29,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.MatteBorder;
+import javax.swing.ImageIcon;
 
 public class TelaFornecedor extends JFrame {
 
@@ -64,7 +65,7 @@ public class TelaFornecedor extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 1900, 1000);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLACK);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -145,7 +146,7 @@ public class TelaFornecedor extends JFrame {
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CadastrarFornecedor();
@@ -153,13 +154,13 @@ public class TelaFornecedor extends JFrame {
 				listarValores();
 			}
 		});
-		btnNewButton.setBounds(318, 767, 176, 30);
+		btnNewButton.setBounds(318, 767, 176, 38);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_3 = new JButton("Alterar");
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setBackground(Color.DARK_GRAY);
-		btnNewButton_3.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tabelaFornecedor.getSelectedRowCount() > 0) {
@@ -172,13 +173,13 @@ public class TelaFornecedor extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(655, 767, 176, 30);
+		btnNewButton_3.setBounds(612, 767, 176, 38);
 		contentPane.add(btnNewButton_3);
 
 		JButton btnNewButton_4 = new JButton("Excluir");
 		btnNewButton_4.setBackground(Color.DARK_GRAY);
 		btnNewButton_4.setForeground(Color.WHITE);
-		btnNewButton_4.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
+		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tabelaFornecedor.getSelectedRowCount() > 0) {
@@ -191,19 +192,19 @@ public class TelaFornecedor extends JFrame {
 				}
 			}
 		});
-		btnNewButton_4.setBounds(1015, 767, 176, 30);
+		btnNewButton_4.setBounds(940, 767, 176, 38);
 		contentPane.add(btnNewButton_4);
 
 		JButton btnNewButton_5 = new JButton("Limpar");
 		btnNewButton_5.setForeground(Color.WHITE);
 		btnNewButton_5.setBackground(Color.DARK_GRAY);
-		btnNewButton_5.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
+		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LimparCampos();
 			}
 		});
-		btnNewButton_5.setBounds(1390, 767, 176, 30);
+		btnNewButton_5.setBounds(1268, 767, 176, 38);
 		contentPane.add(btnNewButton_5);
 
 		txtTelefone = new JFormattedTextField();
@@ -278,12 +279,33 @@ public class TelaFornecedor extends JFrame {
 			lblTelefone.setBounds(0, 0, 88, 26);
 			panel_2_2.add(lblTelefone);
 			
-			JLabel lblNewLabel_1 = new JLabel("Fornecedor");
+			JLabel lblNewLabel_1 = new JLabel("Fornecedores");
+			lblNewLabel_1.setBackground(Color.BLACK);
 			lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNewLabel_1.setForeground(Color.WHITE);
+			lblNewLabel_1.setForeground(Color.BLACK);
 			lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 25));
 			lblNewLabel_1.setBounds(318, 35, 1248, 75);
 			contentPane.add(lblNewLabel_1);
+			
+			JButton btnNewButton_1 = new JButton("<--");
+			btnNewButton_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaInicial frame = new TelaInicial();
+					frame.setVisible(true);
+					dispose();
+				}
+			});
+			btnNewButton_1.setForeground(Color.WHITE);
+			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+			btnNewButton_1.setBackground(Color.DARK_GRAY);
+			btnNewButton_1.setBounds(1510, 768, 56, 37);
+			contentPane.add(btnNewButton_1);
+			
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(TelaFornecedor.class.getResource("/imagens/fornecedor.png")));
+			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel.setBounds(24, 154, 263, 240);
+			contentPane.add(lblNewLabel);
 		} catch (ParseException e1) {
 
 			e1.printStackTrace();

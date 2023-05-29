@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
-import modelo.Pedido;
-import controle.PedidoBD;
+import modelo.Funcionario;
+import modelo.Cliente;
 import java.awt.GridLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
@@ -26,15 +26,14 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.UIManager;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
 
-public class TabelaPedido extends JFrame {
+public class TabelaCliente extends JFrame {
 
 	static Connection conexao;
 	private JPanel contentPane;
-	private JTable tbPedido;
-	private ArrayList<Pedido> listaPedido;
-	private Pedido pedidoSelecionado;
+	private JTable tbCliente;
+	private ArrayList<Cliente> listaClientes;
+	private Cliente clienteSelecionado;
 	private DefaultTableModel modelo;
 	protected static final int posicaoPessoa = 0;
 
@@ -45,7 +44,7 @@ public class TabelaPedido extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TabelaPedido(TelaVenda tv) {
+	public TabelaCliente(TelaVenda tv) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -63,44 +62,44 @@ public class TabelaPedido extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		panel.add(scrollPane);
 
-		tbPedido = new JTable();
-		tbPedido.setForeground(Color.WHITE);
-		tbPedido.setBackground(Color.DARK_GRAY);
-		tbPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tbPedido.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Sabor", "Tamanho", "Bebida", "Preco (R$)" }
+		tbCliente = new JTable();
+		tbCliente.setForeground(Color.WHITE);
+		tbCliente.setBackground(Color.DARK_GRAY);
+		tbCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tbCliente.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Telefone" }
 
 		));
-		scrollPane.setViewportView(tbPedido);
-		PedidoBD pedidoBD = new PedidoBD();
-		listaPedido = pedidoBD.pesquisarPedido();
+		scrollPane.setViewportView(tbCliente);
+		ClienteBD clienteBD = new ClienteBD();
+		listaClientes = clienteBD.pesquisarCliente();
 
-		tbPedido.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Sabor", "Tamanho", "Bebida", "Preco (R$)" }));
-		scrollPane.setViewportView(tbPedido);
+		tbCliente.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Telefone" }));
+		scrollPane.setViewportView(tbCliente);
 
-		modelo = (DefaultTableModel) tbPedido.getModel();
-		for (int i = 0; i < listaPedido.size(); i++) {
-			Pedido p = listaPedido.get(i);
-			modelo.addRow(new Object[] { p.getId(), p.getSabor(), p.getTamanho(), p.getBebida(), p.getPreco() });
+		modelo = (DefaultTableModel) tbCliente.getModel();
+		for (int i = 0; i < listaClientes.size(); i++) {
+			Cliente p = listaClientes.get(i);
+			modelo.addRow(new Object[] { p.getIdCliente(), p.getNomeCliente(), p.getTelefoneCliente() });
 
 		}
-		tbPedido.setModel(modelo);
+		tbCliente.setModel(modelo);
 		
 		JButton btnNewButton_1 = new JButton("Selecionar");
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int linha = tbPedido.getSelectedRow();
-				int idPedido = (int) tbPedido.getValueAt(linha, 0);
+				int linha = tbCliente.getSelectedRow();
+				int idCliente = (int) tbCliente.getValueAt(linha, 0);
 
-				for (Pedido pedido : listaPedido) {
-					if (pedido.getId() == idPedido) {
-						pedidoSelecionado = pedido;
+				for (Cliente cliente : listaClientes) {
+					if (cliente.getIdCliente() == idCliente) {
+						clienteSelecionado = cliente;
 					}
 				}
 				if (linha > -1) {
 
-					tv.setPedidoSelecionado(pedidoSelecionado);
+					tv.setClienteSelecionado(clienteSelecionado);
 					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "escolha uma linha na tabela");

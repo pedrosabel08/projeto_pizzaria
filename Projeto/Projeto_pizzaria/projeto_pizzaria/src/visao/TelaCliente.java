@@ -10,15 +10,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 import controle.ClienteBD;
 import modelo.Cliente;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
@@ -32,7 +35,7 @@ public class TelaCliente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNome;
-	private JTextField txtTelefone;
+	private JFormattedTextField txtTelefone;
 	private JTextField txtRua;
 	private JTextField txtBairro;
 	private JTextField txtNumero;
@@ -65,7 +68,7 @@ public class TelaCliente extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 2000, 1200);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLACK);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -73,7 +76,7 @@ public class TelaCliente extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(new MatteBorder(0, 0, 6, 6, (Color) new Color(255, 204, 51)));
-		scrollPane.setBounds(434, 74, 1055, 770);
+		scrollPane.setBounds(434, 143, 1055, 668);
 		contentPane.add(scrollPane);
 
 		tabelaClientes = new JTable();
@@ -133,7 +136,7 @@ public class TelaCliente extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel_2.setBackground(Color.DARK_GRAY);
-		panel_2.setBounds(521, 863, 60, 26);
+		panel_2.setBounds(521, 839, 60, 26);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		JLabel lblNome = new JLabel("Nome");
@@ -148,14 +151,14 @@ public class TelaCliente extends JFrame {
 		txtNome.setForeground(Color.WHITE);
 		txtNome.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtNome.setBackground(Color.DARK_GRAY);
-		txtNome.setBounds(521, 896, 145, 31);
+		txtNome.setBounds(521, 872, 145, 31);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(696, 863, 82, 26);
+		panel.setBounds(696, 839, 82, 26);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -167,18 +170,27 @@ public class TelaCliente extends JFrame {
 		lblTelefone.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTelefone.setForeground(Color.WHITE);
 
-		txtTelefone = new JTextField();
+		txtTelefone = new JFormattedTextField();
 		txtTelefone.setForeground(Color.WHITE);
 		txtTelefone.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtTelefone.setBackground(Color.DARK_GRAY);
-		txtTelefone.setBounds(696, 896, 145, 31);
+		txtTelefone.setBounds(696, 872, 145, 31);
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
+		
+		MaskFormatter maskTelefone;
+		try {
+			maskTelefone = new MaskFormatter("(##)#####-####");
+			maskTelefone.install(txtTelefone);
+		} catch (ParseException e1) {
+			
+			e1.printStackTrace();
+		}
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel_3.setBackground(Color.DARK_GRAY);
-		panel_3.setBounds(872, 863, 46, 26);
+		panel_3.setBounds(872, 839, 46, 26);
 		contentPane.add(panel_3);
 		panel_3.setLayout(null);
 
@@ -194,14 +206,14 @@ public class TelaCliente extends JFrame {
 		txtRua.setForeground(Color.WHITE);
 		txtRua.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtRua.setBackground(Color.DARK_GRAY);
-		txtRua.setBounds(872, 896, 127, 31);
+		txtRua.setBounds(872, 872, 127, 31);
 		contentPane.add(txtRua);
 		txtRua.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel_4.setBackground(Color.DARK_GRAY);
-		panel_4.setBounds(1023, 863, 69, 26);
+		panel_4.setBounds(1023, 839, 69, 26);
 		contentPane.add(panel_4);
 		panel_4.setLayout(null);
 
@@ -217,14 +229,14 @@ public class TelaCliente extends JFrame {
 		txtBairro.setForeground(Color.WHITE);
 		txtBairro.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtBairro.setBackground(Color.DARK_GRAY);
-		txtBairro.setBounds(1023, 896, 127, 31);
+		txtBairro.setBounds(1023, 872, 127, 31);
 		contentPane.add(txtBairro);
 		txtBairro.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel_5.setBackground(Color.DARK_GRAY);
-		panel_5.setBounds(1184, 863, 69, 26);
+		panel_5.setBounds(1208, 841, 69, 26);
 		contentPane.add(panel_5);
 		panel_5.setLayout(null);
 
@@ -240,14 +252,14 @@ public class TelaCliente extends JFrame {
 		txtNumero.setForeground(Color.WHITE);
 		txtNumero.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtNumero.setBackground(Color.DARK_GRAY);
-		txtNumero.setBounds(1184, 896, 69, 31);
+		txtNumero.setBounds(1210, 873, 69, 31);
 		contentPane.add(txtNumero);
 		txtNumero.setColumns(10);
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel_6.setBackground(Color.DARK_GRAY);
-		panel_6.setBounds(1295, 863, 90, 26);
+		panel_6.setBounds(1344, 839, 90, 26);
 		contentPane.add(panel_6);
 		panel_6.setLayout(null);
 
@@ -263,14 +275,14 @@ public class TelaCliente extends JFrame {
 		txtReferencia.setForeground(Color.WHITE);
 		txtReferencia.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtReferencia.setBackground(Color.DARK_GRAY);
-		txtReferencia.setBounds(1295, 896, 145, 31);
+		txtReferencia.setBounds(1344, 872, 145, 31);
 		contentPane.add(txtReferencia);
 		txtReferencia.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 		panel_1.setBackground(Color.DARK_GRAY);
-		panel_1.setBounds(434, 863, 46, 26);
+		panel_1.setBounds(434, 839, 46, 26);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
@@ -287,11 +299,11 @@ public class TelaCliente extends JFrame {
 		txtIdCliente.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtIdCliente.setBackground(Color.DARK_GRAY);
 		txtIdCliente.setEnabled(false);
-		txtIdCliente.setBounds(434, 896, 46, 31);
+		txtIdCliente.setBounds(434, 872, 46, 31);
 		contentPane.add(txtIdCliente);
 		txtIdCliente.setColumns(10);
 
-		JButton btnCadastrar = new JButton("Cadastrar Novo Cliente");
+		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCadastrar.setBackground(Color.DARK_GRAY);
 		btnCadastrar.setForeground(Color.WHITE);
@@ -305,7 +317,7 @@ public class TelaCliente extends JFrame {
 		btnCadastrar.setBounds(434, 938, 188, 40);
 		contentPane.add(btnCadastrar);
 
-		JButton btnAlterar = new JButton("Alterar Dados do Cliente");
+		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.setBackground(Color.DARK_GRAY);
 		btnAlterar.setForeground(Color.WHITE);
@@ -316,10 +328,10 @@ public class TelaCliente extends JFrame {
 				listarValores();
 			}
 		});
-		btnAlterar.setBounds(696, 938, 197, 40);
+		btnAlterar.setBounds(721, 938, 197, 40);
 		contentPane.add(btnAlterar);
 
-		JButton btnExcluir = new JButton("Excluir Cliente da Lista");
+		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExcluir.setBackground(Color.DARK_GRAY);
 		btnExcluir.setForeground(Color.WHITE);
@@ -330,10 +342,10 @@ public class TelaCliente extends JFrame {
 				listarValores();
 			}
 		});
-		btnExcluir.setBounds(969, 938, 181, 40);
+		btnExcluir.setBounds(1022, 938, 181, 40);
 		contentPane.add(btnExcluir);
 		
-		JButton btnLimpar = new JButton("Limpar Campos");
+		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLimpar.setBackground(Color.DARK_GRAY);
 		btnLimpar.setForeground(Color.WHITE);
@@ -342,13 +354,35 @@ public class TelaCliente extends JFrame {
 				LimparCampos();
 			}
 		});
-		btnLimpar.setBounds(1219, 938, 127, 40);
+		btnLimpar.setBounds(1292, 938, 197, 40);
 		contentPane.add(btnLimpar);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(TelaCliente.class.getResource("/imagens/pizzaria.jpg")));
-		lblNewLabel.setBounds(0, 0, 1924, 1050);
-		contentPane.add(lblNewLabel);}
+		JButton btnNewButton = new JButton("<--");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial frame = new TelaInicial();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setBounds(1502, 143, 56, 37);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("Clientes");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblNewLabel.setBounds(434, 12, 1057, 132);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(TelaCliente.class.getResource("/imagens/cliente.png")));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(55, 130, 271, 236);
+		contentPane.add(lblNewLabel_1);}
 
 	private void CadastrarCliente() {
 		String nome, telefone, rua, bairro, referencia;
