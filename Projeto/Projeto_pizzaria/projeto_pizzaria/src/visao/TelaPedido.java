@@ -63,7 +63,7 @@ public class TelaPedido extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 2000, 1200);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLACK);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -83,7 +83,7 @@ public class TelaPedido extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"ID", "Sabor", "Tamanho", "Bebida", "Preco"
+				"ID", "Sabor", "Tamanho", "Bebida", "Preco (R$)"
 			}
 		));
 		scrollPane.setViewportView(tabelaPedido);
@@ -293,16 +293,32 @@ public class TelaPedido extends JFrame {
 		btnLimpar.setBounds(1292, 938, 197, 40);
 		contentPane.add(btnLimpar);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(0, 0, 1924, 1050);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Pedido");
+		JLabel lblNewLabel_1 = new JLabel("Pedidos");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setForeground(Color.BLACK);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel_1.setBounds(434, 0, 1055, 75);
-		contentPane.add(lblNewLabel_1);}
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("<--");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial frame = new TelaInicial();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setBounds(1499, 98, 56, 37);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaPedido.class.getResource("/imagens/pedido.png")));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(81, 105, 263, 240);
+		contentPane.add(lblNewLabel);}
 
 	private void CadastrarPedido() {
 		String sabor, tamanho, bebida;

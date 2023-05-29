@@ -30,7 +30,7 @@ public class FuncionarioBD {
 			stmt.setString(1, funcionario.getNome());
 			stmt.setString(2, funcionario.getTelefone());
 			stmt.setString(3, funcionario.getCargo());
-			stmt.setString(4, funcionario.getSalario());
+			stmt.setDouble(4, funcionario.getSalario());
 			stmt.setString(5, funcionario.getCpf());
 			
 			
@@ -61,7 +61,7 @@ public class FuncionarioBD {
 				funcionario.setNome(rs.getString("nomeFuncionario"));
 				funcionario.setTelefone(rs.getString("telefoneFuncionario"));
 				funcionario.setCargo(rs.getString("cargoFuncionario"));
-				funcionario.setSalario(rs.getString("salarioFuncionario"));
+				funcionario.setSalario(rs.getDouble("salarioFuncionario"));
 				funcionario.setCpf(rs.getString("cpfFuncionario"));
 				
 				lista.add(funcionario);
@@ -84,7 +84,7 @@ public class FuncionarioBD {
 			stmt.setString(1, funcionario.getNome());
 			stmt.setString(2, funcionario.getTelefone());
 			stmt.setString(3, funcionario.getCargo());
-			stmt.setString(4, funcionario.getSalario());
+			stmt.setDouble(4, funcionario.getSalario());
 			stmt.setString(5, funcionario.getCpf());
 			stmt.setInt(6, funcionario.getId());
 			

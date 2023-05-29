@@ -69,7 +69,7 @@ public class TelaFuncionario extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 2000, 1200);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.BLACK);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -89,7 +89,7 @@ public class TelaFuncionario extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"ID", "Nome", "Telefone", "Cargo", "Salario", "CPF"
+				"ID", "Nome", "Telefone", "Cargo", "Salario (R$)", "CPF"
 			}
 		));
 		scrollPane.setViewportView(tabelaFunc);
@@ -343,22 +343,14 @@ public class TelaFuncionario extends JFrame {
 		btnLimpar.setBounds(1292, 938, 197, 40);
 		contentPane.add(btnLimpar);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBackground(Color.DARK_GRAY);
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(10, 11, 1924, 1050);
-		contentPane.add(lblNewLabel);
-		
 		JLabel lblNewLabel_1 = new JLabel("Funcionarios");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setForeground(Color.BLACK);
 		lblNewLabel_1.setBounds(434, 11, 1055, 63);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("X");
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setForeground(Color.WHITE);
+		JButton btnNewButton = new JButton("<--");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
@@ -366,18 +358,27 @@ public class TelaFuncionario extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnNewButton.setBounds(1512, 77, 51, 40);
-		contentPane.add(btnNewButton);}
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setBounds(1507, 77, 56, 37);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/imagens/empregado.png")));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(52, 74, 263, 240);
+		contentPane.add(lblNewLabel);}
 
 	private void CadastrarFuncionario() {
-		String nome, telefone, cargo, salario, cpf;
+		String nome, telefone, cargo, cpf;
+		double salario;
 		int numero;
 
 		nome = txtNome.getText();
 		telefone = txtTelefone.getText();
 		cargo = txtCargo.getText();
-		salario = txtSalario.getText();
+		salario = Double.parseDouble(txtSalario.getText());
 		cpf = txtCpf.getText();
 
 		Funcionario funcionario = new Funcionario();
@@ -400,13 +401,14 @@ public class TelaFuncionario extends JFrame {
 	}
 	private void AlterarFuncionario() {
 		int id;
-		String nome, telefone, cargo, salario, cpf;
+		String nome, telefone, cargo, cpf;
+		double salario;
 
 		id = Integer.parseInt(txtId.getText());
 		nome = txtNome.getText();
 		telefone = txtTelefone.getText();
 		cargo = txtCargo.getText();
-		salario = txtSalario.getText();
+		salario = Double.parseDouble(txtSalario.getText());
 		cpf = txtCpf.getText();
 
 		Funcionario funcionario = new Funcionario();

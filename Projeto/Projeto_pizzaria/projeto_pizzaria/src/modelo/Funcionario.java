@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Funcionario {
 	private int id;
-	private String nome, cargo, salario, telefone, cpf;
+	private String nome, cargo,telefone, cpf;
+	private double salario;
 	public int getId() {
 		return id;
 	}
@@ -23,10 +24,10 @@ public class Funcionario {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	public String getSalario() {
+	public double getSalario() {
 		return salario;
 	}
-	public void setSalario(String salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 	public String getTelefone() {

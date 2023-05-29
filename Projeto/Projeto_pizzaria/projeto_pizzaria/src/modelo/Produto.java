@@ -2,7 +2,7 @@ package modelo;
 
 public class Produto {
 	private int id;
-	private String nome, fornecedor, quantidade;;
+	private String nome, fornecedor, quantidade;
 	private Double preco;
 	
 	public int getId() {

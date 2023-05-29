@@ -18,7 +18,7 @@ public class ProdutoBD {
 	ArrayList<Produto> lista = new ArrayList<>();
 
 	public void cadastrarProduto(Produto produto) {
-		String sql = "insert into Produto (nomeProduto, precoProduto, qtdProduto, idFornecedor) values (?,?,?,?)";
+		String sql = "insert into produto (nomeProduto, precoProduto, qtdProduto, idFornecedor) values (?,?,?,?)";
 
 		conn = new Conexao().faz_conexao();
 
@@ -41,7 +41,9 @@ public class ProdutoBD {
 
 	}
 	public ArrayList <Produto> pesquisarProduto(){
-		String sql ="select idProdutos, f.nomeFornecedor, p.nomeProduto, precoProduto, qtdProduto from Produto p inner join Fornecedor f on p.idFornecedor = f.idFornecedor order by idProduto;";
+		String sql = "select idProduto, f.nomeFornecedor, nomeProduto, precoProduto, qtdProduto from Produto p inner join Fornecedor f on p.idFornecedor = f.idFornecedor order by idProduto";
+		
+		conn = new Conexao().faz_conexao();
 		
 		try {
 			
