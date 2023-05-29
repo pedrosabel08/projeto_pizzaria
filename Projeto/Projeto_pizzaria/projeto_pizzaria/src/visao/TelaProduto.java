@@ -9,10 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 import modelo.Produto;
 import controle.ProdutoBD;
@@ -37,6 +39,7 @@ public class TelaProduto extends JFrame {
 	private JTextField txtPreco;
 	private JTextField txtID;
 	private JTable tabelaProduto;
+	private JTextField txtFiltro;
 
 	/**
 	 * Launch the application.
@@ -330,7 +333,25 @@ public class TelaProduto extends JFrame {
 		lblNewLabel_3.setIcon(new ImageIcon(TelaProduto.class.getResource("/imagens/refrigerante.png")));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBounds(59, 632, 259, 227);
-		contentPane.add(lblNewLabel_3);}
+		contentPane.add(lblNewLabel_3);
+		
+		txtFiltro = new JTextField();
+		txtFiltro.setColumns(10);
+		txtFiltro.setBounds(1552, 382, 188, 31);
+		contentPane.add(txtFiltro);
+		
+		JButton btnNewButton_1 = new JButton("Filtrar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String filtro = txtFiltro.getText();
+				filtrarTabela(filtro);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.setBackground(Color.DARK_GRAY);
+		btnNewButton_1.setBounds(1552, 419, 188, 40);
+		contentPane.add(btnNewButton_1);}
 
 	private void CadastrarProduto() {
 		String nome, fornecedor, quantidade;
@@ -415,5 +436,11 @@ public class TelaProduto extends JFrame {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
 
+	}
+	private void filtrarTabela(String filtro) {
+	    DefaultTableModel model = (DefaultTableModel) tabelaProduto.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaProduto.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro));
 	}
 }

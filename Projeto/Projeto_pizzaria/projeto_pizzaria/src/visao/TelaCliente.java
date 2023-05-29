@@ -9,12 +9,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
+import javax.swing.table.TableRowSorter;
 
 import controle.ClienteBD;
 import modelo.Cliente;
@@ -42,6 +44,7 @@ public class TelaCliente extends JFrame {
 	private JTextField txtReferencia;
 	private JTextField txtIdCliente;
 	private JTable tabelaClientes;
+	private JTextField txtFiltro;
 
 	/**
 	 * Launch the application.
@@ -382,7 +385,25 @@ public class TelaCliente extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(TelaCliente.class.getResource("/imagens/cliente.png")));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(55, 130, 271, 236);
-		contentPane.add(lblNewLabel_1);}
+		contentPane.add(lblNewLabel_1);
+		
+		txtFiltro = new JTextField();
+		txtFiltro.setBounds(1530, 358, 188, 31);
+		contentPane.add(txtFiltro);
+		txtFiltro.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Filtrar");
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBackground(Color.DARK_GRAY);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String filtro = txtFiltro.getText();
+				filtrarTabela(filtro);
+			}
+		});
+		btnNewButton_1.setBounds(1530, 395, 188, 40);
+		contentPane.add(btnNewButton_1);}
 
 	private void CadastrarCliente() {
 		String nome, telefone, rua, bairro, referencia;
@@ -476,5 +497,11 @@ public class TelaCliente extends JFrame {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
 
+	}
+	private void filtrarTabela(String filtro) {
+	    DefaultTableModel model = (DefaultTableModel) tabelaClientes.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaClientes.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro));
 	}
 }

@@ -10,9 +10,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import javax.swing.text.MaskFormatter;
 
 import controle.FornecedorBD;
@@ -39,6 +41,7 @@ public class TelaFornecedor extends JFrame {
 	private JTable tabelaFornecedor;
 	private JFormattedTextField txtCNPJ;
 	private JFormattedTextField txtTelefone;
+	private JTextField textField;
 	/**
 	 * Launch the application.
 	 */
@@ -72,7 +75,7 @@ public class TelaFornecedor extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(318, 147, 1248, 471);
+		scrollPane.setBounds(368, 147, 1120, 471);
 		contentPane.add(scrollPane);
 
 		tabelaFornecedor = new JTable();
@@ -115,7 +118,7 @@ public class TelaFornecedor extends JFrame {
 		txtID.setBackground(Color.DARK_GRAY);
 		txtID.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
 		txtID.setEnabled(false);
-		txtID.setBounds(318, 691, 86, 30);
+		txtID.setBounds(368, 691, 86, 30);
 		contentPane.add(txtID);
 		txtID.setColumns(10);
 
@@ -131,7 +134,7 @@ public class TelaFornecedor extends JFrame {
 		txtCNPJ.setBackground(Color.DARK_GRAY);
 		txtCNPJ.setForeground(Color.WHITE);
 		txtCNPJ.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
-		txtCNPJ.setBounds(940, 691, 230, 30);
+		txtCNPJ.setBounds(865, 691, 230, 30);
 		contentPane.add(txtCNPJ);
 
 		MaskFormatter maskCNPJ;
@@ -211,7 +214,7 @@ public class TelaFornecedor extends JFrame {
 		txtTelefone.setBackground(Color.DARK_GRAY);
 		txtTelefone.setForeground(Color.WHITE);
 		txtTelefone.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
-		txtTelefone.setBounds(1336, 695, 230, 33);
+		txtTelefone.setBounds(1258, 691, 230, 30);
 		contentPane.add(txtTelefone);
 
 		MaskFormatter maskTelefone;
@@ -223,7 +226,7 @@ public class TelaFornecedor extends JFrame {
 			panel_1.setLayout(null);
 			panel_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_1.setBackground(Color.DARK_GRAY);
-			panel_1.setBounds(318, 650, 46, 26);
+			panel_1.setBounds(368, 650, 46, 26);
 			contentPane.add(panel_1);
 			
 			JLabel lblIDCliente = new JLabel("ID");
@@ -253,7 +256,7 @@ public class TelaFornecedor extends JFrame {
 			panel_2_1.setLayout(null);
 			panel_2_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_2_1.setBackground(Color.DARK_GRAY);
-			panel_2_1.setBounds(940, 650, 60, 26);
+			panel_2_1.setBounds(865, 650, 60, 26);
 			contentPane.add(panel_2_1);
 			
 			JLabel lblCnpj = new JLabel("CNPJ");
@@ -268,7 +271,7 @@ public class TelaFornecedor extends JFrame {
 			panel_2_2.setLayout(null);
 			panel_2_2.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_2_2.setBackground(Color.DARK_GRAY);
-			panel_2_2.setBounds(1336, 650, 86, 26);
+			panel_2_2.setBounds(1258, 650, 86, 26);
 			contentPane.add(panel_2_2);
 			
 			JLabel lblTelefone = new JLabel("Telefone");
@@ -306,6 +309,24 @@ public class TelaFornecedor extends JFrame {
 			lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel.setBounds(24, 154, 263, 240);
 			contentPane.add(lblNewLabel);
+			
+			textField = new JTextField();
+			textField.setColumns(10);
+			textField.setBounds(1565, 299, 188, 31);
+			contentPane.add(textField);
+			
+			JButton btnNewButton_1_1 = new JButton("Filtrar");
+			btnNewButton_1_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					String filtro = textField.getText();
+					filtrarTabela(filtro);
+				}
+			});
+			btnNewButton_1_1.setForeground(Color.WHITE);
+			btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+			btnNewButton_1_1.setBackground(Color.DARK_GRAY);
+			btnNewButton_1_1.setBounds(1565, 336, 188, 40);
+			contentPane.add(btnNewButton_1_1);
 		} catch (ParseException e1) {
 
 			e1.printStackTrace();
@@ -387,5 +408,11 @@ public class TelaFornecedor extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
+	}
+	private void filtrarTabela(String filtro) {
+	    DefaultTableModel model = (DefaultTableModel) tabelaFornecedor.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaFornecedor.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro));
 	}
 }
