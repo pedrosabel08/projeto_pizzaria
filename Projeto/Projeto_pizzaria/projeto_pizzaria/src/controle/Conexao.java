@@ -9,7 +9,7 @@ public class Conexao {
 
 	public static Connection faz_conexao() {
 		try {
-			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizzariabd", "root", "pedro.amor0808");
+			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizzariabd", "root", "");
 
 		} catch (SQLException e) {
 			System.out.println("Erro ao conectar a base de dados.");
