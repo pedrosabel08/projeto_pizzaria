@@ -29,6 +29,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
 
 public class TelaProduto extends JFrame {
 
@@ -337,21 +339,58 @@ public class TelaProduto extends JFrame {
 		
 		txtFiltro = new JTextField();
 		txtFiltro.setColumns(10);
-		txtFiltro.setBounds(1552, 382, 188, 31);
+		txtFiltro.setBounds(1553, 510, 188, 31);
 		contentPane.add(txtFiltro);
 		
-		JButton btnNewButton_1 = new JButton("Filtrar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		
+		
+		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setBounds(1553, 354, 109, 23);
+		contentPane.add(rdbtnNome);
+		
+		JRadioButton rdbtnPreco = new JRadioButton("Preco");
+		rdbtnPreco.setBounds(1553, 396, 109, 23);
+		contentPane.add(rdbtnPreco);
+		
+		JRadioButton rdbtnQuantidade = new JRadioButton("Quantidade");
+		rdbtnQuantidade.setBounds(1553, 441, 109, 23);
+		contentPane.add(rdbtnQuantidade);
+		
+		JRadioButton rdbtnFornecedor = new JRadioButton("Fornecedor");
+		rdbtnFornecedor.setBounds(1553, 480, 109, 23);
+		contentPane.add(rdbtnFornecedor);
+		
+		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setBounds(1553, 309, 109, 23);
+		contentPane.add(rdbtnID);
+		
+		JButton btnFiltrar = new JButton("Filtrar");
+		btnFiltrar.setForeground(Color.WHITE);
+		btnFiltrar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnFiltrar.setBackground(Color.DARK_GRAY);
+		btnFiltrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String filtro = txtFiltro.getText();
-				filtrarTabela(filtro);
+				if(rdbtnID.isSelected()) {
+					filtrarTabelaPorColuna(0);
+				}
+				if(rdbtnNome.isSelected()) {
+					filtrarTabelaPorColuna(1);
+				}
+				if(rdbtnPreco.isSelected()) {
+					filtrarTabelaPorColuna(2);
+				}
+				if(rdbtnQuantidade.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnFornecedor.isSelected()) {
+					filtrarTabelaPorColuna(4);
+				}
 			}
 		});
-		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setBounds(1552, 419, 188, 40);
-		contentPane.add(btnNewButton_1);}
+		btnFiltrar.setBounds(1553, 554, 87, 26);
+		contentPane.add(btnFiltrar);}
+		
+	
 
 	private void CadastrarProduto() {
 		String nome, fornecedor, quantidade;
@@ -437,10 +476,11 @@ public class TelaProduto extends JFrame {
 		}
 
 	}
-	private void filtrarTabela(String filtro) {
+	private void filtrarTabelaPorColuna(int columnIndex) {
+		String filtro = txtFiltro.getText();
 	    DefaultTableModel model = (DefaultTableModel) tabelaProduto.getModel();
 	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
 	    tabelaProduto.setRowSorter(sorter);
-	    sorter.setRowFilter(RowFilter.regexFilter(filtro));
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro, columnIndex));
 	}
 }

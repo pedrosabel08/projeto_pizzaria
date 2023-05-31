@@ -14,7 +14,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema pizzariabd
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pizzariabd` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `pizzariabd`;
 USE `pizzariabd` ;
 
 -- -----------------------------------------------------
@@ -27,8 +27,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`admin` (
   PRIMARY KEY (`idAdmin`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 8
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -44,8 +43,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`cliente` (
   `referencia` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -59,8 +57,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`fornecedor` (
   PRIMARY KEY (`idFornecedor`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -76,8 +73,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`funcionario` (
   PRIMARY KEY (`idFuncionario`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -91,8 +87,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`pedido` (
   `preco` DOUBLE NULL DEFAULT NULL,
   PRIMARY KEY (`idPedido`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -110,8 +105,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`produto` (
     REFERENCES `pizzariabd`.`fornecedor` (`idFornecedor`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
@@ -132,8 +126,7 @@ CREATE TABLE IF NOT EXISTS `pizzariabd`.`venda` (
     REFERENCES `pizzariabd`.`pedido` (`idPedido`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
