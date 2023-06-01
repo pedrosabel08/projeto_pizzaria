@@ -34,6 +34,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JRadioButton;
 
 public class TelaFuncionario extends JFrame {
 
@@ -45,7 +46,7 @@ public class TelaFuncionario extends JFrame {
 	private JFormattedTextField txtCpf;
 	private JTextField txtId;
 	private JTable tabelaFunc;
-	private JTextField textField;
+	private JTextField txtFiltro;
 
 	/**
 	 * Launch the application.
@@ -373,22 +374,69 @@ public class TelaFuncionario extends JFrame {
 		lblNewLabel.setBounds(52, 74, 263, 240);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(1609, 367, 188, 31);
-		contentPane.add(textField);
+		txtFiltro = new JTextField();
+		txtFiltro.setColumns(10);
+		txtFiltro.setBounds(1608, 487, 188, 31);
+		contentPane.add(txtFiltro);
 		
+		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setBounds(1608, 291, 109, 23);
+		contentPane.add(rdbtnNome);
+		
+		JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+		rdbtnTelefone.setBounds(1608, 324, 109, 23);
+		contentPane.add(rdbtnTelefone);
+		
+		JRadioButton rdbtnCargo = new JRadioButton("Cargo");
+		rdbtnCargo.setBounds(1608, 365, 109, 23);
+		contentPane.add(rdbtnCargo);
+		
+		JRadioButton rdbtnSalario = new JRadioButton("Salario");
+		rdbtnSalario.setBounds(1608, 405, 109, 23);
+		contentPane.add(rdbtnSalario);
+		
+		JRadioButton rdbtnCPF = new JRadioButton("CPF");
+		rdbtnCPF.setBounds(1608, 445, 109, 23);
+		contentPane.add(rdbtnCPF);
+		
+		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setBounds(1608, 250, 109, 23);
+		contentPane.add(rdbtnID);
+		
+		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setBounds(1608, 212, 109, 23);
+		contentPane.add(rdbtnTodos);
+	
 		JButton btnNewButton_1 = new JButton("Filtrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String filtro = textField.getText();
-				filtrarTabela(filtro);
+				if(rdbtnID.isSelected()) {
+					filtrarTabelaPorColuna(0);
+				}
+				if(rdbtnNome.isSelected()) {
+					filtrarTabelaPorColuna(1);
+				}
+				if(rdbtnTelefone.isSelected()) {
+					filtrarTabelaPorColuna(2);
+				}
+				if(rdbtnCargo.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnSalario.isSelected()) {
+					filtrarTabelaPorColuna(4);
+				}
+				if(rdbtnCPF.isSelected()) {
+					filtrarTabelaPorColuna(5);
+				}
+				if(rdbtnTodos.isSelected()) {
+					filtrarTabela(txtFiltro.getText());
+				}
 			}
 		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setBounds(1609, 404, 188, 40);
+		btnNewButton_1.setBounds(1608, 524, 188, 40);
 		contentPane.add(btnNewButton_1);}
 
 	private void CadastrarFuncionario() {
@@ -480,6 +528,15 @@ public class TelaFuncionario extends JFrame {
 		}
 
 	}
+	
+	private void filtrarTabelaPorColuna(int columnIndex) {
+		String filtro = txtFiltro.getText();
+	    DefaultTableModel model = (DefaultTableModel) tabelaFunc.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaFunc.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro, columnIndex));
+	}
+	
 	private void filtrarTabela(String filtro) {
 	    DefaultTableModel model = (DefaultTableModel) tabelaFunc.getModel();
 	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);

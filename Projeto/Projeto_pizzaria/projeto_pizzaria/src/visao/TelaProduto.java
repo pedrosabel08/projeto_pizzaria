@@ -364,6 +364,10 @@ public class TelaProduto extends JFrame {
 		rdbtnID.setBounds(1553, 309, 109, 23);
 		contentPane.add(rdbtnID);
 		
+		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setBounds(1553, 268, 109, 23);
+		contentPane.add(rdbtnTodos);
+		
 		JButton btnFiltrar = new JButton("Filtrar");
 		btnFiltrar.setForeground(Color.WHITE);
 		btnFiltrar.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -385,11 +389,13 @@ public class TelaProduto extends JFrame {
 				if(rdbtnFornecedor.isSelected()) {
 					filtrarTabelaPorColuna(4);
 				}
+				if(rdbtnTodos.isSelected()) {
+					filtrarTabela(txtFiltro.getText());
+				}
 			}
 		});
 		btnFiltrar.setBounds(1553, 554, 87, 26);
-		contentPane.add(btnFiltrar);}
-		
+		contentPane.add(btnFiltrar);}		
 	
 
 	private void CadastrarProduto() {
@@ -482,5 +488,12 @@ public class TelaProduto extends JFrame {
 	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
 	    tabelaProduto.setRowSorter(sorter);
 	    sorter.setRowFilter(RowFilter.regexFilter(filtro, columnIndex));
+	}
+	
+	private void filtrarTabela(String filtro) {
+	    DefaultTableModel model = (DefaultTableModel) tabelaProduto.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaProduto.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro));
 	}
 }

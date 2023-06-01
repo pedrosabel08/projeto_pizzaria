@@ -32,6 +32,7 @@ import java.awt.Toolkit;
 import javax.swing.JFormattedTextField;
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
+import javax.swing.JRadioButton;
 
 public class TelaFornecedor extends JFrame {
 
@@ -41,7 +42,7 @@ public class TelaFornecedor extends JFrame {
 	private JTable tabelaFornecedor;
 	private JFormattedTextField txtCNPJ;
 	private JFormattedTextField txtTelefone;
-	private JTextField textField;
+	private JTextField txtFiltro;
 	/**
 	 * Launch the application.
 	 */
@@ -310,23 +311,58 @@ public class TelaFornecedor extends JFrame {
 			lblNewLabel.setBounds(24, 154, 263, 240);
 			contentPane.add(lblNewLabel);
 			
-			textField = new JTextField();
-			textField.setColumns(10);
-			textField.setBounds(1565, 299, 188, 31);
-			contentPane.add(textField);
+			txtFiltro = new JTextField();
+			txtFiltro.setColumns(10);
+			txtFiltro.setBounds(1566, 411, 188, 31);
+			contentPane.add(txtFiltro);
+			
+			JRadioButton rdbtnID = new JRadioButton("ID");
+			rdbtnID.setBounds(1566, 283, 109, 23);
+			contentPane.add(rdbtnID);
+			
+			JRadioButton rdbtnNome = new JRadioButton("Nome");
+			rdbtnNome.setBounds(1566, 309, 109, 23);
+			contentPane.add(rdbtnNome);
+			
+			JRadioButton rdbtnCNPJ = new JRadioButton("CNPJ");
+			rdbtnCNPJ.setBounds(1566, 335, 109, 23);
+			contentPane.add(rdbtnCNPJ);
+			
+			JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+			rdbtnTelefone.setBounds(1566, 361, 109, 23);
+			contentPane.add(rdbtnTelefone);
+			
+			JRadioButton rdbtnTodos = new JRadioButton("Todos");
+			rdbtnTodos.setBounds(1566, 257, 109, 23);
+			contentPane.add(rdbtnTodos);
 			
 			JButton btnNewButton_1_1 = new JButton("Filtrar");
 			btnNewButton_1_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					String filtro = textField.getText();
-					filtrarTabela(filtro);
+					if(rdbtnID.isSelected()) {
+						filtrarTabelaPorColuna(0);
+					}
+					if(rdbtnNome.isSelected()) {
+						filtrarTabelaPorColuna(1);
+					}
+					if(rdbtnCNPJ.isSelected()) {
+						filtrarTabelaPorColuna(2);
+					}
+					if(rdbtnTelefone.isSelected()) {
+						filtrarTabelaPorColuna(3);
+					}
+					if(rdbtnTodos.isSelected()) {
+						filtrarTabela(txtFiltro.getText());
+					}
 				}
 			});
 			btnNewButton_1_1.setForeground(Color.WHITE);
 			btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnNewButton_1_1.setBackground(Color.DARK_GRAY);
-			btnNewButton_1_1.setBounds(1565, 336, 188, 40);
+			btnNewButton_1_1.setBounds(1566, 448, 188, 40);
 			contentPane.add(btnNewButton_1_1);
+				
+			
 		} catch (ParseException e1) {
 
 			e1.printStackTrace();
@@ -409,6 +445,15 @@ public class TelaFornecedor extends JFrame {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
 	}
+	
+	private void filtrarTabelaPorColuna(int columnIndex) {
+		String filtro = txtFiltro.getText();
+	    DefaultTableModel model = (DefaultTableModel) tabelaFornecedor.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaFornecedor.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro, columnIndex));
+	}
+	
 	private void filtrarTabela(String filtro) {
 	    DefaultTableModel model = (DefaultTableModel) tabelaFornecedor.getModel();
 	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
