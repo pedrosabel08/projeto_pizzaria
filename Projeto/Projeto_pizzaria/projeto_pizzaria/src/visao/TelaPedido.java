@@ -29,6 +29,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JRadioButton;
 
 public class TelaPedido extends JFrame {
 
@@ -39,7 +40,7 @@ public class TelaPedido extends JFrame {
 	private JTextField txtPreco;
 	private JTextField txtID;
 	private JTable tabelaPedido;
-	private JTextField textField;
+	private JTextField txtFiltro;
 
 	/**
 	 * Launch the application.
@@ -323,22 +324,62 @@ public class TelaPedido extends JFrame {
 		lblNewLabel.setBounds(81, 105, 263, 240);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(1592, 412, 188, 31);
-		contentPane.add(textField);
+		txtFiltro = new JTextField();
+		txtFiltro.setColumns(10);
+		txtFiltro.setBounds(1593, 514, 188, 31);
+		contentPane.add(txtFiltro);
+		
+		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setBounds(1593, 291, 109, 23);
+		contentPane.add(rdbtnID);
+		
+		JRadioButton rdbtnSabor = new JRadioButton("Sabor");
+		rdbtnSabor.setBounds(1593, 334, 109, 23);
+		contentPane.add(rdbtnSabor);
+		
+		JRadioButton rdbtnTamanho = new JRadioButton("Tamanho");
+		rdbtnTamanho.setBounds(1593, 375, 109, 23);
+		contentPane.add(rdbtnTamanho);
+		
+		JRadioButton rdbtnBebida = new JRadioButton("Bebida");
+		rdbtnBebida.setBounds(1593, 421, 109, 23);
+		contentPane.add(rdbtnBebida);
+		
+		JRadioButton rdbtnPreco = new JRadioButton("Preco");
+		rdbtnPreco.setBounds(1593, 460, 109, 23);
+		contentPane.add(rdbtnPreco);
+		
+		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setBounds(1593, 253, 109, 23);
+		contentPane.add(rdbtnTodos);
 		
 		JButton btnNewButton_1 = new JButton("Filtrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String filtro = textField.getText();
-				filtrarTabela(filtro);
+				if(rdbtnID.isSelected()) {
+					filtrarTabelaPorColuna(0);
+				}
+				if(rdbtnSabor.isSelected()) {
+					filtrarTabelaPorColuna(1);
+				}
+				if(rdbtnTamanho.isSelected()) {
+					filtrarTabelaPorColuna(2);
+				}
+				if(rdbtnBebida.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnPreco.isSelected()) {
+					filtrarTabelaPorColuna(4);
+				}
+				if(rdbtnTodos.isSelected()) {
+					filtrarTabela(txtFiltro.getText());
+				}
 			}
 		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setBounds(1592, 449, 188, 40);
+		btnNewButton_1.setBounds(1593, 551, 188, 40);
 		contentPane.add(btnNewButton_1);}
 
 	private void CadastrarPedido() {
@@ -424,6 +465,14 @@ public class TelaPedido extends JFrame {
 		}
 
 	}
+	private void filtrarTabelaPorColuna(int columnIndex) {
+		String filtro = txtFiltro.getText();
+	    DefaultTableModel model = (DefaultTableModel) tabelaPedido.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaPedido.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro, columnIndex));
+	}
+	
 	private void filtrarTabela(String filtro) {
 	    DefaultTableModel model = (DefaultTableModel) tabelaPedido.getModel();
 	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
