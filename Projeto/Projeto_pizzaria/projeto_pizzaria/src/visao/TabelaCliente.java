@@ -56,7 +56,7 @@ public class TabelaCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 45, 430, 181);
+		panel.setBounds(10, 50, 430, 174);
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -109,19 +109,20 @@ public class TabelaCliente extends JFrame {
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setBounds(146, 237, 148, 36);
+		btnNewButton_1.setBounds(145, 235, 148, 36);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton = new JButton("Voltar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				dispose();
 			}
 		});
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(10, 11, 89, 23);
-		contentPane.add(btnNewButton);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnVoltar.setBackground(Color.DARK_GRAY);
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.setBounds(10, 11, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 
 }

@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.border.MatteBorder;
+import java.awt.Insets;
 
 public class TelaLogin extends JFrame {
 
@@ -81,6 +82,8 @@ public class TelaLogin extends JFrame {
 		lblNome.setForeground(Color.BLACK);
 		
 		txtNome = new JTextField();
+		txtNome.setMargin(new Insets(2, 6, 2, 2));
+		txtNome.setCaretColor(Color.WHITE);
 		txtNome.setBackground(Color.BLACK);
 		txtNome.setForeground(Color.WHITE);
 		txtNome.setBounds(21, 50, 143, 36);
@@ -95,6 +98,8 @@ public class TelaLogin extends JFrame {
 		lblSenha.setForeground(Color.BLACK);
 		
 		txtSenha = new JPasswordField();
+		txtSenha.setMargin(new Insets(2, 6, 2, 2));
+		txtSenha.setCaretColor(Color.WHITE);
 		txtSenha.setBackground(Color.BLACK);
 		txtSenha.setForeground(Color.WHITE);
 		txtSenha.setBounds(21, 160, 143, 36);
