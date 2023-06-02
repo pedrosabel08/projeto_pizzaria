@@ -80,6 +80,7 @@ public class TelaVenda extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaVenda() {
+		setUndecorated(true);
 		
 		TelaVenda tv = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -380,19 +381,19 @@ public class TelaVenda extends JFrame {
 		lblCliente.setBounds(0, 0, 157, 37);
 		panel_3_1.add(lblCliente);
 		
-		JButton btnNewButton = new JButton("<--");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
 				frame.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setBounds(10, 11, 56, 37);
-		contentPane.add(btnNewButton);
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.setBackground(Color.DARK_GRAY);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnVoltar.setBounds(10, 11, 79, 37);
+		contentPane.add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("Venda");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

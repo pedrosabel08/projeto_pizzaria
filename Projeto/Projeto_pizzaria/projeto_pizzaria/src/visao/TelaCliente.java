@@ -68,6 +68,7 @@ public class TelaCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCliente() {
+		setUndecorated(true);
 		setBackground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(MAXIMIZED_BOTH);
@@ -376,19 +377,19 @@ public class TelaCliente extends JFrame {
 		btnLimpar.setBounds(1292, 938, 197, 40);
 		contentPane.add(btnLimpar);
 		
-		JButton btnNewButton = new JButton("<--");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
 				frame.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(10, 12, 56, 37);
-		contentPane.add(btnNewButton);
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnVoltar.setBackground(Color.DARK_GRAY);
+		btnVoltar.setBounds(10, 12, 82, 37);
+		contentPane.add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("Clientes");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

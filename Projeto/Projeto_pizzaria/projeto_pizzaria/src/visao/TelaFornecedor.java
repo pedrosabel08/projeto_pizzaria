@@ -22,6 +22,8 @@ import controle.FuncionarioBD;
 import modelo.Fornecedor;
 import modelo.Funcionario;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
@@ -65,6 +67,7 @@ public class TelaFornecedor extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFornecedor() {
+		setUndecorated(true);
 		setTitle("Tela de Fornecedores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(MAXIMIZED_BOTH);
@@ -77,7 +80,7 @@ public class TelaFornecedor extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(368, 147, 1120, 471);
+		scrollPane.setBounds(368, 147, 1120, 614);
 		contentPane.add(scrollPane);
 
 		tabelaFornecedor = new JTable();
@@ -114,15 +117,27 @@ public class TelaFornecedor extends JFrame {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
+		
+		tabelaFornecedor.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                	int row = tabelaFornecedor.getSelectedRow();
+                    txtID.setText(tabelaFornecedor.getValueAt(row, 0).toString());
+                    txtNome.setText(tabelaFornecedor.getValueAt(row, 1).toString());
+                    txtCNPJ.setText(tabelaFornecedor.getValueAt(row, 2).toString());
+                    txtTelefone.setText(tabelaFornecedor.getValueAt(row, 3).toString());
+                }
+            }
+        });
 
 		txtID = new JTextField();
 		txtID.setCaretColor(Color.WHITE);
 		txtID.setMargin(new Insets(2, 6, 2, 2));
 		txtID.setForeground(Color.WHITE);
 		txtID.setBackground(Color.DARK_GRAY);
-		txtID.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
+		txtID.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtID.setEnabled(false);
-		txtID.setBounds(368, 691, 86, 30);
+		txtID.setBounds(368, 833, 86, 30);
 		contentPane.add(txtID);
 		txtID.setColumns(10);
 
@@ -131,8 +146,8 @@ public class TelaFornecedor extends JFrame {
 		txtNome.setMargin(new Insets(2, 6, 2, 2));
 		txtNome.setForeground(Color.WHITE);
 		txtNome.setBackground(Color.DARK_GRAY);
-		txtNome.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
-		txtNome.setBounds(530, 691, 230, 30);
+		txtNome.setFont(new Font("Tahoma", Font.BOLD, 12));
+		txtNome.setBounds(623, 833, 230, 30);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 
@@ -141,8 +156,8 @@ public class TelaFornecedor extends JFrame {
 		txtCNPJ.setMargin(new Insets(2, 6, 2, 2));
 		txtCNPJ.setBackground(Color.DARK_GRAY);
 		txtCNPJ.setForeground(Color.WHITE);
-		txtCNPJ.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
-		txtCNPJ.setBounds(865, 691, 230, 30);
+		txtCNPJ.setFont(new Font("Tahoma", Font.BOLD, 12));
+		txtCNPJ.setBounds(958, 833, 230, 30);
 		contentPane.add(txtCNPJ);
 
 		MaskFormatter maskCNPJ;
@@ -165,7 +180,7 @@ public class TelaFornecedor extends JFrame {
 				listarValores();
 			}
 		});
-		btnNewButton.setBounds(362, 760, 176, 38);
+		btnNewButton.setBounds(369, 905, 176, 38);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_3 = new JButton("Alterar");
@@ -184,7 +199,7 @@ public class TelaFornecedor extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(656, 760, 176, 38);
+		btnNewButton_3.setBounds(623, 905, 176, 38);
 		contentPane.add(btnNewButton_3);
 
 		JButton btnNewButton_4 = new JButton("Excluir");
@@ -203,7 +218,7 @@ public class TelaFornecedor extends JFrame {
 				}
 			}
 		});
-		btnNewButton_4.setBounds(984, 760, 176, 38);
+		btnNewButton_4.setBounds(958, 905, 176, 38);
 		contentPane.add(btnNewButton_4);
 
 		JButton btnNewButton_5 = new JButton("Limpar");
@@ -215,7 +230,7 @@ public class TelaFornecedor extends JFrame {
 				LimparCampos();
 			}
 		});
-		btnNewButton_5.setBounds(1312, 760, 176, 38);
+		btnNewButton_5.setBounds(1312, 905, 176, 38);
 		contentPane.add(btnNewButton_5);
 
 		txtTelefone = new JFormattedTextField();
@@ -223,8 +238,8 @@ public class TelaFornecedor extends JFrame {
 		txtTelefone.setMargin(new Insets(2, 6, 2, 2));
 		txtTelefone.setBackground(Color.DARK_GRAY);
 		txtTelefone.setForeground(Color.WHITE);
-		txtTelefone.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
-		txtTelefone.setBounds(1258, 691, 230, 30);
+		txtTelefone.setFont(new Font("Tahoma", Font.BOLD, 12));
+		txtTelefone.setBounds(1258, 832, 230, 30);
 		contentPane.add(txtTelefone);
 
 		MaskFormatter maskTelefone;
@@ -236,7 +251,7 @@ public class TelaFornecedor extends JFrame {
 			panel_1.setLayout(null);
 			panel_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_1.setBackground(Color.DARK_GRAY);
-			panel_1.setBounds(368, 650, 46, 26);
+			panel_1.setBounds(368, 796, 46, 26);
 			contentPane.add(panel_1);
 			
 			JLabel lblIDCliente = new JLabel("ID");
@@ -251,7 +266,7 @@ public class TelaFornecedor extends JFrame {
 			panel_2.setLayout(null);
 			panel_2.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_2.setBackground(Color.DARK_GRAY);
-			panel_2.setBounds(530, 650, 60, 26);
+			panel_2.setBounds(623, 792, 60, 26);
 			contentPane.add(panel_2);
 			
 			JLabel lblNome = new JLabel("Nome");
@@ -266,7 +281,7 @@ public class TelaFornecedor extends JFrame {
 			panel_2_1.setLayout(null);
 			panel_2_1.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_2_1.setBackground(Color.DARK_GRAY);
-			panel_2_1.setBounds(865, 650, 60, 26);
+			panel_2_1.setBounds(958, 792, 60, 26);
 			contentPane.add(panel_2_1);
 			
 			JLabel lblCnpj = new JLabel("CNPJ");
@@ -281,7 +296,7 @@ public class TelaFornecedor extends JFrame {
 			panel_2_2.setLayout(null);
 			panel_2_2.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(255, 204, 0)));
 			panel_2_2.setBackground(Color.DARK_GRAY);
-			panel_2_2.setBounds(1258, 650, 86, 26);
+			panel_2_2.setBounds(1258, 791, 86, 26);
 			contentPane.add(panel_2_2);
 			
 			JLabel lblTelefone = new JLabel("Telefone");
@@ -300,19 +315,19 @@ public class TelaFornecedor extends JFrame {
 			lblNewLabel_1.setBounds(318, 35, 1248, 75);
 			contentPane.add(lblNewLabel_1);
 			
-			JButton btnNewButton_1 = new JButton("<--");
-			btnNewButton_1.addActionListener(new ActionListener() {
+			JButton btnVoltar = new JButton("Voltar");
+			btnVoltar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					TelaInicial frame = new TelaInicial();
 					frame.setVisible(true);
 					dispose();
 				}
 			});
-			btnNewButton_1.setForeground(Color.WHITE);
-			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-			btnNewButton_1.setBackground(Color.DARK_GRAY);
-			btnNewButton_1.setBounds(10, 11, 56, 37);
-			contentPane.add(btnNewButton_1);
+			btnVoltar.setForeground(Color.WHITE);
+			btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+			btnVoltar.setBackground(Color.DARK_GRAY);
+			btnVoltar.setBounds(10, 11, 78, 37);
+			contentPane.add(btnVoltar);
 			
 			JLabel lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(TelaFornecedor.class.getResource("/imagens/fornecedor.png")));
@@ -321,6 +336,7 @@ public class TelaFornecedor extends JFrame {
 			contentPane.add(lblNewLabel);
 			
 			txtFiltro = new JTextField();
+			txtFiltro.setFont(new Font("Tahoma", Font.BOLD, 12));
 			txtFiltro.setCaretColor(Color.WHITE);
 			txtFiltro.setMargin(new Insets(2, 6, 2, 2));
 			txtFiltro.setForeground(Color.WHITE);

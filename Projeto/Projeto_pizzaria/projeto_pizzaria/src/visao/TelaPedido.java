@@ -63,6 +63,7 @@ public class TelaPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPedido() {
+		setUndecorated(true);
 		setBackground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(MAXIMIZED_BOTH);
@@ -315,19 +316,19 @@ public class TelaPedido extends JFrame {
 		lblNewLabel_1.setBounds(434, 0, 1055, 75);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("<--");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
 				frame.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(10, 11, 56, 37);
-		contentPane.add(btnNewButton);
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnVoltar.setBackground(Color.DARK_GRAY);
+		btnVoltar.setBounds(10, 11, 76, 37);
+		contentPane.add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaPedido.class.getResource("/imagens/pedido.png")));
