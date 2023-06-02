@@ -33,6 +33,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
+import java.awt.Insets;
 
 public class TelaFornecedor extends JFrame {
 
@@ -115,6 +116,8 @@ public class TelaFornecedor extends JFrame {
 		}
 
 		txtID = new JTextField();
+		txtID.setCaretColor(Color.WHITE);
+		txtID.setMargin(new Insets(2, 6, 2, 2));
 		txtID.setForeground(Color.WHITE);
 		txtID.setBackground(Color.DARK_GRAY);
 		txtID.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
@@ -124,6 +127,8 @@ public class TelaFornecedor extends JFrame {
 		txtID.setColumns(10);
 
 		txtNome = new JTextField();
+		txtNome.setCaretColor(Color.WHITE);
+		txtNome.setMargin(new Insets(2, 6, 2, 2));
 		txtNome.setForeground(Color.WHITE);
 		txtNome.setBackground(Color.DARK_GRAY);
 		txtNome.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
@@ -132,6 +137,8 @@ public class TelaFornecedor extends JFrame {
 		txtNome.setColumns(10);
 
 		txtCNPJ = new JFormattedTextField();
+		txtCNPJ.setCaretColor(Color.WHITE);
+		txtCNPJ.setMargin(new Insets(2, 6, 2, 2));
 		txtCNPJ.setBackground(Color.DARK_GRAY);
 		txtCNPJ.setForeground(Color.WHITE);
 		txtCNPJ.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
@@ -158,7 +165,7 @@ public class TelaFornecedor extends JFrame {
 				listarValores();
 			}
 		});
-		btnNewButton.setBounds(318, 767, 176, 38);
+		btnNewButton.setBounds(362, 760, 176, 38);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_3 = new JButton("Alterar");
@@ -177,7 +184,7 @@ public class TelaFornecedor extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(612, 767, 176, 38);
+		btnNewButton_3.setBounds(656, 760, 176, 38);
 		contentPane.add(btnNewButton_3);
 
 		JButton btnNewButton_4 = new JButton("Excluir");
@@ -196,7 +203,7 @@ public class TelaFornecedor extends JFrame {
 				}
 			}
 		});
-		btnNewButton_4.setBounds(940, 767, 176, 38);
+		btnNewButton_4.setBounds(984, 760, 176, 38);
 		contentPane.add(btnNewButton_4);
 
 		JButton btnNewButton_5 = new JButton("Limpar");
@@ -208,10 +215,12 @@ public class TelaFornecedor extends JFrame {
 				LimparCampos();
 			}
 		});
-		btnNewButton_5.setBounds(1268, 767, 176, 38);
+		btnNewButton_5.setBounds(1312, 760, 176, 38);
 		contentPane.add(btnNewButton_5);
 
 		txtTelefone = new JFormattedTextField();
+		txtTelefone.setCaretColor(Color.WHITE);
+		txtTelefone.setMargin(new Insets(2, 6, 2, 2));
 		txtTelefone.setBackground(Color.DARK_GRAY);
 		txtTelefone.setForeground(Color.WHITE);
 		txtTelefone.setFont(new Font("Yu Gothic UI", Font.PLAIN, 17));
@@ -302,7 +311,7 @@ public class TelaFornecedor extends JFrame {
 			btnNewButton_1.setForeground(Color.WHITE);
 			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnNewButton_1.setBackground(Color.DARK_GRAY);
-			btnNewButton_1.setBounds(1510, 768, 56, 37);
+			btnNewButton_1.setBounds(10, 11, 56, 37);
 			contentPane.add(btnNewButton_1);
 			
 			JLabel lblNewLabel = new JLabel("");
@@ -312,27 +321,41 @@ public class TelaFornecedor extends JFrame {
 			contentPane.add(lblNewLabel);
 			
 			txtFiltro = new JTextField();
+			txtFiltro.setCaretColor(Color.WHITE);
+			txtFiltro.setMargin(new Insets(2, 6, 2, 2));
+			txtFiltro.setForeground(Color.WHITE);
+			txtFiltro.setBackground(Color.DARK_GRAY);
 			txtFiltro.setColumns(10);
 			txtFiltro.setBounds(1566, 411, 188, 31);
 			contentPane.add(txtFiltro);
 			
 			JRadioButton rdbtnID = new JRadioButton("ID");
+			rdbtnID.setForeground(Color.WHITE);
+			rdbtnID.setBackground(Color.DARK_GRAY);
 			rdbtnID.setBounds(1566, 283, 109, 23);
 			contentPane.add(rdbtnID);
 			
 			JRadioButton rdbtnNome = new JRadioButton("Nome");
+			rdbtnNome.setForeground(Color.WHITE);
+			rdbtnNome.setBackground(Color.DARK_GRAY);
 			rdbtnNome.setBounds(1566, 309, 109, 23);
 			contentPane.add(rdbtnNome);
 			
 			JRadioButton rdbtnCNPJ = new JRadioButton("CNPJ");
+			rdbtnCNPJ.setForeground(Color.WHITE);
+			rdbtnCNPJ.setBackground(Color.DARK_GRAY);
 			rdbtnCNPJ.setBounds(1566, 335, 109, 23);
 			contentPane.add(rdbtnCNPJ);
 			
 			JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+			rdbtnTelefone.setForeground(Color.WHITE);
+			rdbtnTelefone.setBackground(Color.DARK_GRAY);
 			rdbtnTelefone.setBounds(1566, 361, 109, 23);
 			contentPane.add(rdbtnTelefone);
 			
 			JRadioButton rdbtnTodos = new JRadioButton("Todos");
+			rdbtnTodos.setForeground(Color.WHITE);
+			rdbtnTodos.setBackground(Color.DARK_GRAY);
 			rdbtnTodos.setBounds(1566, 257, 109, 23);
 			contentPane.add(rdbtnTodos);
 			

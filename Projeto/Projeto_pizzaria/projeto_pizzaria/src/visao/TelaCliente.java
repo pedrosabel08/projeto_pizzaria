@@ -32,6 +32,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JRadioButton;
+import java.awt.Insets;
 
 public class TelaCliente extends JFrame {
 
@@ -78,7 +80,7 @@ public class TelaCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new MatteBorder(0, 0, 6, 6, (Color) new Color(255, 204, 51)));
+		scrollPane.setViewportBorder(null);
 		scrollPane.setBounds(434, 143, 1055, 668);
 		contentPane.add(scrollPane);
 
@@ -151,6 +153,8 @@ public class TelaCliente extends JFrame {
 		lblNome.setForeground(Color.WHITE);
 
 		txtNome = new JTextField();
+		txtNome.setCaretColor(Color.WHITE);
+		txtNome.setMargin(new Insets(2, 6, 2, 2));
 		txtNome.setForeground(Color.WHITE);
 		txtNome.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtNome.setBackground(Color.DARK_GRAY);
@@ -174,6 +178,8 @@ public class TelaCliente extends JFrame {
 		lblTelefone.setForeground(Color.WHITE);
 
 		txtTelefone = new JFormattedTextField();
+		txtTelefone.setCaretColor(Color.WHITE);
+		txtTelefone.setMargin(new Insets(2, 6, 2, 2));
 		txtTelefone.setForeground(Color.WHITE);
 		txtTelefone.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtTelefone.setBackground(Color.DARK_GRAY);
@@ -206,6 +212,8 @@ public class TelaCliente extends JFrame {
 		lblRua.setForeground(Color.WHITE);
 
 		txtRua = new JTextField();
+		txtRua.setCaretColor(Color.WHITE);
+		txtRua.setMargin(new Insets(2, 6, 2, 2));
 		txtRua.setForeground(Color.WHITE);
 		txtRua.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtRua.setBackground(Color.DARK_GRAY);
@@ -229,6 +237,8 @@ public class TelaCliente extends JFrame {
 		lblBairro.setForeground(Color.WHITE);
 
 		txtBairro = new JTextField();
+		txtBairro.setCaretColor(Color.WHITE);
+		txtBairro.setMargin(new Insets(2, 6, 2, 2));
 		txtBairro.setForeground(Color.WHITE);
 		txtBairro.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtBairro.setBackground(Color.DARK_GRAY);
@@ -252,6 +262,8 @@ public class TelaCliente extends JFrame {
 		lblNumero.setForeground(Color.WHITE);
 
 		txtNumero = new JTextField();
+		txtNumero.setCaretColor(Color.WHITE);
+		txtNumero.setMargin(new Insets(2, 6, 2, 2));
 		txtNumero.setForeground(Color.WHITE);
 		txtNumero.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtNumero.setBackground(Color.DARK_GRAY);
@@ -275,6 +287,8 @@ public class TelaCliente extends JFrame {
 		lblReferencia.setForeground(Color.WHITE);
 
 		txtReferencia = new JTextField();
+		txtReferencia.setCaretColor(Color.WHITE);
+		txtReferencia.setMargin(new Insets(2, 6, 2, 2));
 		txtReferencia.setForeground(Color.WHITE);
 		txtReferencia.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtReferencia.setBackground(Color.DARK_GRAY);
@@ -298,6 +312,8 @@ public class TelaCliente extends JFrame {
 		lblIDCliente.setForeground(Color.WHITE);
 
 		txtIdCliente = new JTextField();
+		txtIdCliente.setCaretColor(Color.WHITE);
+		txtIdCliente.setMargin(new Insets(2, 6, 2, 2));
 		txtIdCliente.setForeground(Color.WHITE);
 		txtIdCliente.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtIdCliente.setBackground(Color.DARK_GRAY);
@@ -371,7 +387,7 @@ public class TelaCliente extends JFrame {
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(1502, 143, 56, 37);
+		btnNewButton.setBounds(10, 12, 56, 37);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Clientes");
@@ -388,22 +404,106 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		txtFiltro = new JTextField();
-		txtFiltro.setBounds(1530, 358, 188, 31);
+		txtFiltro.setCaretColor(Color.WHITE);
+		txtFiltro.setMargin(new Insets(2, 6, 2, 2));
+		txtFiltro.setForeground(Color.WHITE);
+		txtFiltro.setBackground(Color.DARK_GRAY);
+		txtFiltro.setBounds(1532, 526, 160, 31);
 		contentPane.add(txtFiltro);
 		txtFiltro.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Filtrar");
-		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+		rdbtnTelefone.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnTelefone.setForeground(Color.WHITE);
+		rdbtnTelefone.setBackground(Color.DARK_GRAY);
+		rdbtnTelefone.setBounds(1532, 310, 109, 23);
+		contentPane.add(rdbtnTelefone);
+		
+		JRadioButton rdbtnRua = new JRadioButton("Rua");
+		rdbtnRua.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnRua.setForeground(Color.WHITE);
+		rdbtnRua.setBackground(Color.DARK_GRAY);
+		rdbtnRua.setBounds(1532, 352, 109, 23);
+		contentPane.add(rdbtnRua);
+		
+		JRadioButton rdbtnBairro = new JRadioButton("Bairro");
+		rdbtnBairro.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnBairro.setForeground(Color.WHITE);
+		rdbtnBairro.setBackground(Color.DARK_GRAY);
+		rdbtnBairro.setBounds(1532, 394, 109, 23);
+		contentPane.add(rdbtnBairro);
+		
+		JRadioButton rdbtnNumero = new JRadioButton("Número");
+		rdbtnNumero.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnNumero.setForeground(Color.WHITE);
+		rdbtnNumero.setBackground(Color.DARK_GRAY);
+		rdbtnNumero.setBounds(1532, 434, 109, 23);
+		contentPane.add(rdbtnNumero);
+		
+		JRadioButton rdbtnReferencia = new JRadioButton("Referência");
+		rdbtnReferencia.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnReferencia.setForeground(Color.WHITE);
+		rdbtnReferencia.setBackground(Color.DARK_GRAY);
+		rdbtnReferencia.setBounds(1532, 471, 109, 23);
+		contentPane.add(rdbtnReferencia);
+		
+		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnNome.setForeground(Color.WHITE);
+		rdbtnNome.setBackground(Color.DARK_GRAY);
+		rdbtnNome.setBounds(1532, 269, 109, 23);
+		contentPane.add(rdbtnNome);
+		
+		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnID.setForeground(Color.WHITE);
+		rdbtnID.setBackground(Color.DARK_GRAY);
+		rdbtnID.setBounds(1532, 229, 109, 23);
+		contentPane.add(rdbtnID);
+		
+		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setSelected(true);
+		rdbtnTodos.setHorizontalAlignment(SwingConstants.LEFT);
+		rdbtnTodos.setForeground(Color.WHITE);
+		rdbtnTodos.setBackground(Color.DARK_GRAY);
+		rdbtnTodos.setBounds(1532, 193, 109, 23);
+		contentPane.add(rdbtnTodos);
+		
+		JButton btnFiltrar = new JButton("Filtrar");
+		btnFiltrar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnFiltrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String filtro = txtFiltro.getText();
-				filtrarTabela(filtro);
+				if(rdbtnID.isSelected()) {
+					filtrarTabelaPorColuna(0);
+				}
+				if(rdbtnNome.isSelected()) {
+					filtrarTabelaPorColuna(1);
+				}
+				if(rdbtnTelefone.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnRua.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnBairro.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnReferencia.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnNumero.isSelected()) {
+					filtrarTabelaPorColuna(3);
+				}
+				if(rdbtnTodos.isSelected()) {
+					filtrarTabela(txtFiltro.getText());
+				}
 			}
 		});
-		btnNewButton_1.setBounds(1530, 395, 188, 40);
-		contentPane.add(btnNewButton_1);}
+		btnFiltrar.setForeground(Color.WHITE);
+		btnFiltrar.setBackground(Color.DARK_GRAY);
+		btnFiltrar.setBounds(1532, 568, 89, 36);
+		contentPane.add(btnFiltrar);
+	}
 
 	private void CadastrarCliente() {
 		String nome, telefone, rua, bairro, referencia;
@@ -497,6 +597,13 @@ public class TelaCliente extends JFrame {
 			JOptionPane.showMessageDialog(null,"Erro no Listar Valores" + e);
 		}
 
+	}
+	private void filtrarTabelaPorColuna(int columnIndex) {
+		String filtro = txtFiltro.getText();
+	    DefaultTableModel model = (DefaultTableModel) tabelaClientes.getModel();
+	    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+	    tabelaClientes.setRowSorter(sorter);
+	    sorter.setRowFilter(RowFilter.regexFilter(filtro, columnIndex));
 	}
 	private void filtrarTabela(String filtro) {
 	    DefaultTableModel model = (DefaultTableModel) tabelaClientes.getModel();

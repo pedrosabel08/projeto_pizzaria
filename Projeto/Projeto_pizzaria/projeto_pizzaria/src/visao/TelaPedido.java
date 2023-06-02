@@ -30,6 +30,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
+import java.awt.Insets;
 
 public class TelaPedido extends JFrame {
 
@@ -74,7 +75,7 @@ public class TelaPedido extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new MatteBorder(0, 0, 6, 6, (Color) new Color(255, 204, 51)));
+		scrollPane.setViewportBorder(null);
 		scrollPane.setBounds(434, 98, 1055, 676);
 		contentPane.add(scrollPane);
 
@@ -143,6 +144,8 @@ public class TelaPedido extends JFrame {
 		lblSabor.setForeground(Color.WHITE);
 
 		txtSabor = new JTextField();
+		txtSabor.setCaretColor(Color.WHITE);
+		txtSabor.setMargin(new Insets(2, 6, 2, 2));
 		txtSabor.setForeground(Color.WHITE);
 		txtSabor.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtSabor.setBackground(Color.DARK_GRAY);
@@ -166,6 +169,8 @@ public class TelaPedido extends JFrame {
 		lblTamanho.setForeground(Color.WHITE);
 
 		txtTamanho = new JTextField();
+		txtTamanho.setCaretColor(Color.WHITE);
+		txtTamanho.setMargin(new Insets(2, 6, 2, 2));
 		txtTamanho.setForeground(Color.WHITE);
 		txtTamanho.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtTamanho.setBackground(Color.DARK_GRAY);
@@ -189,6 +194,8 @@ public class TelaPedido extends JFrame {
 		lblBebida.setForeground(Color.WHITE);
 
 		txtBebida = new JTextField();
+		txtBebida.setCaretColor(Color.WHITE);
+		txtBebida.setMargin(new Insets(2, 6, 2, 2));
 		txtBebida.setForeground(Color.WHITE);
 		txtBebida.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtBebida.setBackground(Color.DARK_GRAY);
@@ -212,6 +219,8 @@ public class TelaPedido extends JFrame {
 		lblPreco.setForeground(Color.WHITE);
 
 		txtPreco = new JTextField();
+		txtPreco.setCaretColor(Color.WHITE);
+		txtPreco.setMargin(new Insets(2, 6, 2, 2));
 		txtPreco.setForeground(Color.WHITE);
 		txtPreco.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtPreco.setBackground(Color.DARK_GRAY);
@@ -235,6 +244,8 @@ public class TelaPedido extends JFrame {
 		lblIDCliente.setForeground(Color.WHITE);
 
 		txtID = new JTextField();
+		txtID.setCaretColor(Color.WHITE);
+		txtID.setMargin(new Insets(2, 6, 2, 2));
 		txtID.setForeground(Color.WHITE);
 		txtID.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtID.setBackground(Color.DARK_GRAY);
@@ -315,7 +326,7 @@ public class TelaPedido extends JFrame {
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(1499, 98, 56, 37);
+		btnNewButton.setBounds(10, 11, 56, 37);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -325,31 +336,47 @@ public class TelaPedido extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		txtFiltro = new JTextField();
+		txtFiltro.setCaretColor(Color.WHITE);
+		txtFiltro.setMargin(new Insets(2, 6, 2, 2));
+		txtFiltro.setForeground(Color.WHITE);
+		txtFiltro.setBackground(Color.DARK_GRAY);
 		txtFiltro.setColumns(10);
 		txtFiltro.setBounds(1593, 514, 188, 31);
 		contentPane.add(txtFiltro);
 		
 		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setForeground(Color.WHITE);
+		rdbtnID.setBackground(Color.DARK_GRAY);
 		rdbtnID.setBounds(1593, 291, 109, 23);
 		contentPane.add(rdbtnID);
 		
 		JRadioButton rdbtnSabor = new JRadioButton("Sabor");
+		rdbtnSabor.setForeground(Color.WHITE);
+		rdbtnSabor.setBackground(Color.DARK_GRAY);
 		rdbtnSabor.setBounds(1593, 334, 109, 23);
 		contentPane.add(rdbtnSabor);
 		
 		JRadioButton rdbtnTamanho = new JRadioButton("Tamanho");
+		rdbtnTamanho.setForeground(Color.WHITE);
+		rdbtnTamanho.setBackground(Color.DARK_GRAY);
 		rdbtnTamanho.setBounds(1593, 375, 109, 23);
 		contentPane.add(rdbtnTamanho);
 		
 		JRadioButton rdbtnBebida = new JRadioButton("Bebida");
+		rdbtnBebida.setForeground(Color.WHITE);
+		rdbtnBebida.setBackground(Color.DARK_GRAY);
 		rdbtnBebida.setBounds(1593, 421, 109, 23);
 		contentPane.add(rdbtnBebida);
 		
 		JRadioButton rdbtnPreco = new JRadioButton("Preco");
+		rdbtnPreco.setForeground(Color.WHITE);
+		rdbtnPreco.setBackground(Color.DARK_GRAY);
 		rdbtnPreco.setBounds(1593, 460, 109, 23);
 		contentPane.add(rdbtnPreco);
 		
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setForeground(Color.WHITE);
+		rdbtnTodos.setBackground(Color.DARK_GRAY);
 		rdbtnTodos.setBounds(1593, 253, 109, 23);
 		contentPane.add(rdbtnTodos);
 		

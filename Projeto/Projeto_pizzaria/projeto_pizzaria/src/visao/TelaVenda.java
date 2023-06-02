@@ -29,6 +29,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Insets;
 
 public class TelaVenda extends JFrame {
 
@@ -92,7 +93,7 @@ public class TelaVenda extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new MatteBorder(0, 0, 6, 6, (Color) new Color(255, 204, 51)));
+		scrollPane.setViewportBorder(null);
 		scrollPane.setBounds(742, 254, 747, 553);
 		contentPane.add(scrollPane);
 
@@ -118,11 +119,14 @@ public class TelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_1_2);
 		
 		txtIdPedido = new JTextField();
+		txtIdPedido.setMargin(new Insets(2, 6, 2, 2));
+		txtIdPedido.setCaretColor(Color.WHITE);
+		txtIdPedido.setForeground(Color.WHITE);
 		txtIdPedido.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIdPedido.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtIdPedido.setEditable(false);
 		txtIdPedido.setColumns(10);
-		txtIdPedido.setBackground(Color.WHITE);
+		txtIdPedido.setBackground(Color.DARK_GRAY);
 		txtIdPedido.setBounds(199, 331, 46, 25);
 		contentPane.add(txtIdPedido);
 		
@@ -146,10 +150,13 @@ public class TelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_2_2);
 		
 		txtSabor = new JTextField();
+		txtSabor.setMargin(new Insets(2, 6, 2, 2));
+		txtSabor.setCaretColor(Color.WHITE);
+		txtSabor.setForeground(Color.WHITE);
 		txtSabor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtSabor.setEditable(false);
 		txtSabor.setColumns(10);
-		txtSabor.setBackground(Color.WHITE);
+		txtSabor.setBackground(Color.DARK_GRAY);
 		txtSabor.setBounds(222, 386, 220, 25);
 		contentPane.add(txtSabor);
 		
@@ -160,18 +167,24 @@ public class TelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_2_2_1);
 		
 		txtTamanho = new JTextField();
+		txtTamanho.setMargin(new Insets(2, 6, 2, 2));
+		txtTamanho.setCaretColor(Color.WHITE);
+		txtTamanho.setForeground(Color.WHITE);
 		txtTamanho.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtTamanho.setEditable(false);
 		txtTamanho.setColumns(10);
-		txtTamanho.setBackground(Color.WHITE);
+		txtTamanho.setBackground(Color.DARK_GRAY);
 		txtTamanho.setBounds(254, 428, 188, 25);
 		contentPane.add(txtTamanho);
 		
 		txtBebida = new JTextField();
+		txtBebida.setMargin(new Insets(2, 6, 2, 2));
+		txtBebida.setCaretColor(Color.WHITE);
+		txtBebida.setForeground(Color.WHITE);
 		txtBebida.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtBebida.setEditable(false);
 		txtBebida.setColumns(10);
-		txtBebida.setBackground(Color.WHITE);
+		txtBebida.setBackground(Color.DARK_GRAY);
 		txtBebida.setBounds(255, 469, 187, 25);
 		contentPane.add(txtBebida);
 		
@@ -182,10 +195,13 @@ public class TelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_2_2_1_1);
 		
 		txtPreco = new JTextField();
+		txtPreco.setMargin(new Insets(2, 6, 2, 2));
+		txtPreco.setCaretColor(Color.WHITE);
+		txtPreco.setForeground(Color.WHITE);
 		txtPreco.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtPreco.setEditable(false);
 		txtPreco.setColumns(10);
-		txtPreco.setBackground(Color.WHITE);
+		txtPreco.setBackground(Color.DARK_GRAY);
 		txtPreco.setBounds(255, 513, 187, 25);
 		contentPane.add(txtPreco);
 		
@@ -202,11 +218,14 @@ public class TelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		txtIdCliente = new JTextField();
+		txtIdCliente.setForeground(Color.WHITE);
+		txtIdCliente.setCaretColor(Color.WHITE);
+		txtIdCliente.setMargin(new Insets(2, 6, 2, 2));
 		txtIdCliente.setHorizontalAlignment(SwingConstants.CENTER);
 		txtIdCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtIdCliente.setEditable(false);
 		txtIdCliente.setColumns(10);
-		txtIdCliente.setBackground(Color.WHITE);
+		txtIdCliente.setBackground(Color.DARK_GRAY);
 		txtIdCliente.setBounds(199, 688, 46, 25);
 		contentPane.add(txtIdCliente);
 		
@@ -224,10 +243,13 @@ public class TelaVenda extends JFrame {
 		contentPane.add(btnPesquisarCliente);
 		
 		txtNome = new JTextField();
+		txtNome.setForeground(Color.WHITE);
+		txtNome.setCaretColor(Color.WHITE);
+		txtNome.setMargin(new Insets(2, 6, 2, 2));
 		txtNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtNome.setEditable(false);
 		txtNome.setColumns(10);
-		txtNome.setBackground(Color.WHITE);
+		txtNome.setBackground(Color.DARK_GRAY);
 		txtNome.setBounds(228, 730, 214, 25);
 		contentPane.add(txtNome);
 		
@@ -312,7 +334,7 @@ public class TelaVenda extends JFrame {
 				txtNome.setText("");
 			}
 		});
-		btnFinalizar.setBounds(976, 830, 157, 37);
+		btnFinalizar.setBounds(1044, 830, 157, 37);
 		contentPane.add(btnFinalizar);
 		
 		JButton btnHistorico = new JButton("Historico");
@@ -325,7 +347,7 @@ public class TelaVenda extends JFrame {
 				HV.setVisible(true);
 			}
 		});
-		btnHistorico.setBounds(1227, 830, 157, 37);
+		btnHistorico.setBounds(1332, 830, 157, 37);
 		contentPane.add(btnHistorico);
 		
 		JPanel panel_3 = new JPanel();
@@ -369,7 +391,7 @@ public class TelaVenda extends JFrame {
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setBounds(1433, 830, 56, 37);
+		btnNewButton.setBounds(10, 11, 56, 37);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Venda");

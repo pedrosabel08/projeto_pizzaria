@@ -45,6 +45,7 @@ public class TabelaCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public TabelaCliente(TelaVenda tv) {
+		setUndecorated(true);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -55,34 +56,34 @@ public class TabelaCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(5, 5, 424, 125);
+		panel.setBounds(10, 45, 430, 181);
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
+		
+				JScrollPane scrollPane = new JScrollPane();
+				panel.add(scrollPane);
+				
+						tbCliente = new JTable();
+						tbCliente.setForeground(Color.WHITE);
+						tbCliente.setBackground(Color.DARK_GRAY);
+						tbCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
+						tbCliente.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Telefone" }
 
-		JScrollPane scrollPane = new JScrollPane();
-		panel.add(scrollPane);
-
-		tbCliente = new JTable();
-		tbCliente.setForeground(Color.WHITE);
-		tbCliente.setBackground(Color.DARK_GRAY);
-		tbCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tbCliente.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Telefone" }
-
-		));
-		scrollPane.setViewportView(tbCliente);
+						));
+						scrollPane.setViewportView(tbCliente);
+						
+								tbCliente.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Telefone" }));
+								scrollPane.setViewportView(tbCliente);
+								
+										modelo = (DefaultTableModel) tbCliente.getModel();
+										tbCliente.setModel(modelo);
 		ClienteBD clienteBD = new ClienteBD();
 		listaClientes = clienteBD.pesquisarCliente();
-
-		tbCliente.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Telefone" }));
-		scrollPane.setViewportView(tbCliente);
-
-		modelo = (DefaultTableModel) tbCliente.getModel();
 		for (int i = 0; i < listaClientes.size(); i++) {
 			Cliente p = listaClientes.get(i);
 			modelo.addRow(new Object[] { p.getIdCliente(), p.getNomeCliente(), p.getTelefoneCliente() });
 
 		}
-		tbCliente.setModel(modelo);
 		
 		JButton btnNewButton_1 = new JButton("Selecionar");
 		btnNewButton_1.setForeground(Color.WHITE);
@@ -108,8 +109,19 @@ public class TabelaCliente extends JFrame {
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setBounds(137, 180, 148, 36);
+		btnNewButton_1.setBounds(146, 237, 148, 36);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setBounds(10, 11, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 
 }
