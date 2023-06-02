@@ -35,6 +35,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
+import java.awt.Insets;
 
 public class TelaFuncionario extends JFrame {
 
@@ -80,7 +81,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new MatteBorder(0, 0, 6, 6, (Color) new Color(255, 204, 51)));
+		scrollPane.setViewportBorder(null);
 		scrollPane.setBounds(434, 74, 1055, 770);
 		contentPane.add(scrollPane);
 
@@ -151,6 +152,8 @@ public class TelaFuncionario extends JFrame {
 		lblNome.setForeground(Color.WHITE);
 
 		txtNome = new JTextField();
+		txtNome.setMargin(new Insets(2, 6, 2, 2));
+		txtNome.setCaretColor(Color.WHITE);
 		txtNome.setForeground(Color.WHITE);
 		txtNome.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtNome.setBackground(Color.DARK_GRAY);
@@ -174,6 +177,8 @@ public class TelaFuncionario extends JFrame {
 		lblTelefone.setForeground(Color.WHITE);
 
 		txtTelefone = new JFormattedTextField();
+		txtTelefone.setMargin(new Insets(2, 6, 2, 2));
+		txtTelefone.setCaretColor(Color.WHITE);
 		txtTelefone.setForeground(Color.WHITE);
 		txtTelefone.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtTelefone.setBackground(Color.DARK_GRAY);
@@ -207,6 +212,8 @@ public class TelaFuncionario extends JFrame {
 		lblCargo.setForeground(Color.WHITE);
 
 		txtCargo = new JTextField();
+		txtCargo.setMargin(new Insets(2, 6, 2, 2));
+		txtCargo.setCaretColor(Color.WHITE);
 		txtCargo.setForeground(Color.WHITE);
 		txtCargo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtCargo.setBackground(Color.DARK_GRAY);
@@ -230,6 +237,8 @@ public class TelaFuncionario extends JFrame {
 		lblSalario.setForeground(Color.WHITE);
 
 		txtSalario = new JTextField();
+		txtSalario.setMargin(new Insets(2, 6, 2, 2));
+		txtSalario.setCaretColor(Color.WHITE);
 		txtSalario.setForeground(Color.WHITE);
 		txtSalario.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtSalario.setBackground(Color.DARK_GRAY);
@@ -253,6 +262,8 @@ public class TelaFuncionario extends JFrame {
 		lblCpf.setForeground(Color.WHITE);
 
 		txtCpf = new JFormattedTextField();
+		txtCpf.setMargin(new Insets(2, 6, 2, 2));
+		txtCpf.setCaretColor(Color.WHITE);
 		txtCpf.setForeground(Color.WHITE);
 		txtCpf.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtCpf.setBackground(Color.DARK_GRAY);
@@ -285,6 +296,7 @@ public class TelaFuncionario extends JFrame {
 		lblIDCliente.setForeground(Color.WHITE);
 
 		txtId = new JTextField();
+		txtId.setMargin(new Insets(2, 6, 2, 2));
 		txtId.setForeground(Color.WHITE);
 		txtId.setFont(new Font("Tahoma", Font.BOLD, 12));
 		txtId.setBackground(Color.DARK_GRAY);
@@ -351,7 +363,7 @@ public class TelaFuncionario extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(Color.BLACK);
-		lblNewLabel_1.setBounds(434, 11, 1055, 63);
+		lblNewLabel_1.setBounds(434, 0, 1055, 63);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("<--");
@@ -365,7 +377,7 @@ public class TelaFuncionario extends JFrame {
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(1507, 77, 56, 37);
+		btnNewButton.setBounds(10, 11, 56, 37);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -375,35 +387,54 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		txtFiltro = new JTextField();
+		txtFiltro.setMargin(new Insets(2, 6, 2, 2));
+		txtFiltro.setForeground(Color.WHITE);
+		txtFiltro.setBackground(Color.DARK_GRAY);
+		txtFiltro.setCaretColor(Color.WHITE);
 		txtFiltro.setColumns(10);
 		txtFiltro.setBounds(1608, 487, 188, 31);
 		contentPane.add(txtFiltro);
 		
 		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setForeground(Color.WHITE);
+		rdbtnNome.setBackground(Color.DARK_GRAY);
 		rdbtnNome.setBounds(1608, 291, 109, 23);
 		contentPane.add(rdbtnNome);
 		
 		JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+		rdbtnTelefone.setForeground(Color.WHITE);
+		rdbtnTelefone.setBackground(Color.DARK_GRAY);
 		rdbtnTelefone.setBounds(1608, 324, 109, 23);
 		contentPane.add(rdbtnTelefone);
 		
 		JRadioButton rdbtnCargo = new JRadioButton("Cargo");
+		rdbtnCargo.setForeground(Color.WHITE);
+		rdbtnCargo.setBackground(Color.DARK_GRAY);
 		rdbtnCargo.setBounds(1608, 365, 109, 23);
 		contentPane.add(rdbtnCargo);
 		
 		JRadioButton rdbtnSalario = new JRadioButton("Salario");
+		rdbtnSalario.setForeground(Color.WHITE);
+		rdbtnSalario.setBackground(Color.DARK_GRAY);
 		rdbtnSalario.setBounds(1608, 405, 109, 23);
 		contentPane.add(rdbtnSalario);
 		
 		JRadioButton rdbtnCPF = new JRadioButton("CPF");
+		rdbtnCPF.setForeground(Color.WHITE);
+		rdbtnCPF.setBackground(Color.DARK_GRAY);
 		rdbtnCPF.setBounds(1608, 445, 109, 23);
 		contentPane.add(rdbtnCPF);
 		
 		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setForeground(Color.WHITE);
+		rdbtnID.setBackground(Color.DARK_GRAY);
 		rdbtnID.setBounds(1608, 250, 109, 23);
 		contentPane.add(rdbtnID);
 		
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setSelected(true);
+		rdbtnTodos.setForeground(Color.WHITE);
+		rdbtnTodos.setBackground(Color.DARK_GRAY);
 		rdbtnTodos.setBounds(1608, 212, 109, 23);
 		contentPane.add(rdbtnTodos);
 	

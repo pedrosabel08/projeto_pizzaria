@@ -46,6 +46,7 @@ public class TabelaPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public TabelaPedido(TelaVenda tv) {
+		setUndecorated(true);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -56,7 +57,7 @@ public class TabelaPedido extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(5, 5, 424, 125);
+		panel.setBounds(15, 57, 424, 185);
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 
@@ -109,8 +110,20 @@ public class TabelaPedido extends JFrame {
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.setBackground(Color.DARK_GRAY);
-		btnNewButton_1.setBounds(137, 180, 148, 36);
+		btnNewButton_1.setBounds(152, 253, 148, 36);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBounds(15, 11, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 
 }
