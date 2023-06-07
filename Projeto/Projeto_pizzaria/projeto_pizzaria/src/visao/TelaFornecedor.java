@@ -36,6 +36,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 import java.awt.Insets;
+import java.awt.Cursor;
 
 public class TelaFornecedor extends JFrame {
 
@@ -170,6 +171,7 @@ public class TelaFornecedor extends JFrame {
 		}
 
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -184,6 +186,7 @@ public class TelaFornecedor extends JFrame {
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_3 = new JButton("Alterar");
+		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setBackground(Color.DARK_GRAY);
 		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -203,6 +206,7 @@ public class TelaFornecedor extends JFrame {
 		contentPane.add(btnNewButton_3);
 
 		JButton btnNewButton_4 = new JButton("Excluir");
+		btnNewButton_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_4.setBackground(Color.DARK_GRAY);
 		btnNewButton_4.setForeground(Color.WHITE);
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -222,6 +226,7 @@ public class TelaFornecedor extends JFrame {
 		contentPane.add(btnNewButton_4);
 
 		JButton btnNewButton_5 = new JButton("Limpar");
+		btnNewButton_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_5.setForeground(Color.WHITE);
 		btnNewButton_5.setBackground(Color.DARK_GRAY);
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -316,6 +321,7 @@ public class TelaFornecedor extends JFrame {
 			contentPane.add(lblNewLabel_1);
 			
 			JButton btnVoltar = new JButton("Voltar");
+			btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnVoltar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					TelaInicial frame = new TelaInicial();
@@ -346,36 +352,42 @@ public class TelaFornecedor extends JFrame {
 			contentPane.add(txtFiltro);
 			
 			JRadioButton rdbtnID = new JRadioButton("ID");
+			rdbtnID.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			rdbtnID.setForeground(Color.WHITE);
 			rdbtnID.setBackground(Color.DARK_GRAY);
 			rdbtnID.setBounds(1566, 283, 109, 23);
 			contentPane.add(rdbtnID);
 			
 			JRadioButton rdbtnNome = new JRadioButton("Nome");
+			rdbtnNome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			rdbtnNome.setForeground(Color.WHITE);
 			rdbtnNome.setBackground(Color.DARK_GRAY);
 			rdbtnNome.setBounds(1566, 309, 109, 23);
 			contentPane.add(rdbtnNome);
 			
 			JRadioButton rdbtnCNPJ = new JRadioButton("CNPJ");
+			rdbtnCNPJ.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			rdbtnCNPJ.setForeground(Color.WHITE);
 			rdbtnCNPJ.setBackground(Color.DARK_GRAY);
 			rdbtnCNPJ.setBounds(1566, 335, 109, 23);
 			contentPane.add(rdbtnCNPJ);
 			
 			JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+			rdbtnTelefone.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			rdbtnTelefone.setForeground(Color.WHITE);
 			rdbtnTelefone.setBackground(Color.DARK_GRAY);
 			rdbtnTelefone.setBounds(1566, 361, 109, 23);
 			contentPane.add(rdbtnTelefone);
 			
 			JRadioButton rdbtnTodos = new JRadioButton("Todos");
+			rdbtnTodos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			rdbtnTodos.setForeground(Color.WHITE);
 			rdbtnTodos.setBackground(Color.DARK_GRAY);
 			rdbtnTodos.setBounds(1566, 257, 109, 23);
 			contentPane.add(rdbtnTodos);
 			
 			JButton btnNewButton_1_1 = new JButton("Filtrar");
+			btnNewButton_1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnNewButton_1_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(rdbtnID.isSelected()) {

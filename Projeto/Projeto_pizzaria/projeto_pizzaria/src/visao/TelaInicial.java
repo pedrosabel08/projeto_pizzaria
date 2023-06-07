@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
+import java.awt.Cursor;
 
 public class TelaInicial extends JFrame {
 
@@ -71,6 +72,7 @@ public class TelaInicial extends JFrame {
 		panel_1.setBackground(new Color(255, 204, 102));
 		
 		JButton btnNewButton = new JButton("Trocar de Conta");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				confirmarTrocarConta();
@@ -122,6 +124,7 @@ public class TelaInicial extends JFrame {
 		panel_1.add(lblNewLabel_1);
 		
 		JButton btnFuncionario = new JButton("Funcionario");
+		btnFuncionario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFuncionario.setForeground(new Color(255, 255, 255));
 		btnFuncionario.setBackground(Color.DARK_GRAY);
 		btnFuncionario.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -134,6 +137,7 @@ public class TelaInicial extends JFrame {
 		});
 		
 		JButton btnFornecedor = new JButton("Fornecedor");
+		btnFornecedor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaFornecedor frame = new TelaFornecedor();
@@ -146,6 +150,7 @@ public class TelaInicial extends JFrame {
 		btnFornecedor.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnCliente = new JButton("Cliente");
+		btnCliente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				TelaCliente frame = new TelaCliente();
@@ -158,6 +163,7 @@ public class TelaInicial extends JFrame {
 		btnCliente.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnProduto = new JButton("Produto");
+		btnProduto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaProduto frame = new TelaProduto();
@@ -170,6 +176,7 @@ public class TelaInicial extends JFrame {
 		btnProduto.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnVenda = new JButton("Venda");
+		btnVenda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaVenda frame = new TelaVenda();
@@ -182,6 +189,7 @@ public class TelaInicial extends JFrame {
 		btnVenda.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		
 		JButton btnPedido = new JButton("Pedido");
+		btnPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPedido frame = new TelaPedido();
@@ -194,6 +202,7 @@ public class TelaInicial extends JFrame {
 		btnPedido.setBackground(Color.DARK_GRAY);
 		
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				confirmarFecharSistema();

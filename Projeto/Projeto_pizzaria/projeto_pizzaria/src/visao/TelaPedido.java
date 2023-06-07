@@ -31,6 +31,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import java.awt.Insets;
+import java.awt.Cursor;
 
 public class TelaPedido extends JFrame {
 
@@ -256,6 +257,7 @@ public class TelaPedido extends JFrame {
 		txtID.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCadastrar.setBackground(Color.DARK_GRAY);
 		btnCadastrar.setForeground(Color.WHITE);
@@ -270,6 +272,7 @@ public class TelaPedido extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.setBackground(Color.DARK_GRAY);
 		btnAlterar.setForeground(Color.WHITE);
@@ -284,6 +287,7 @@ public class TelaPedido extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExcluir.setBackground(Color.DARK_GRAY);
 		btnExcluir.setForeground(Color.WHITE);
@@ -298,6 +302,7 @@ public class TelaPedido extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLimpar.setBackground(Color.DARK_GRAY);
 		btnLimpar.setForeground(Color.WHITE);
@@ -317,6 +322,7 @@ public class TelaPedido extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
@@ -346,42 +352,49 @@ public class TelaPedido extends JFrame {
 		contentPane.add(txtFiltro);
 		
 		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnID.setForeground(Color.WHITE);
 		rdbtnID.setBackground(Color.DARK_GRAY);
 		rdbtnID.setBounds(1593, 291, 109, 23);
 		contentPane.add(rdbtnID);
 		
 		JRadioButton rdbtnSabor = new JRadioButton("Sabor");
+		rdbtnSabor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnSabor.setForeground(Color.WHITE);
 		rdbtnSabor.setBackground(Color.DARK_GRAY);
 		rdbtnSabor.setBounds(1593, 334, 109, 23);
 		contentPane.add(rdbtnSabor);
 		
 		JRadioButton rdbtnTamanho = new JRadioButton("Tamanho");
+		rdbtnTamanho.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnTamanho.setForeground(Color.WHITE);
 		rdbtnTamanho.setBackground(Color.DARK_GRAY);
 		rdbtnTamanho.setBounds(1593, 375, 109, 23);
 		contentPane.add(rdbtnTamanho);
 		
 		JRadioButton rdbtnBebida = new JRadioButton("Bebida");
+		rdbtnBebida.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnBebida.setForeground(Color.WHITE);
 		rdbtnBebida.setBackground(Color.DARK_GRAY);
 		rdbtnBebida.setBounds(1593, 421, 109, 23);
 		contentPane.add(rdbtnBebida);
 		
 		JRadioButton rdbtnPreco = new JRadioButton("Preco");
+		rdbtnPreco.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPreco.setForeground(Color.WHITE);
 		rdbtnPreco.setBackground(Color.DARK_GRAY);
 		rdbtnPreco.setBounds(1593, 460, 109, 23);
 		contentPane.add(rdbtnPreco);
 		
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnTodos.setForeground(Color.WHITE);
 		rdbtnTodos.setBackground(Color.DARK_GRAY);
 		rdbtnTodos.setBounds(1593, 253, 109, 23);
 		contentPane.add(rdbtnTodos);
 		
 		JButton btnNewButton_1 = new JButton("Filtrar");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnID.isSelected()) {

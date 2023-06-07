@@ -36,6 +36,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import java.awt.Insets;
+import java.awt.Cursor;
 
 public class TelaFuncionario extends JFrame {
 
@@ -307,6 +308,7 @@ public class TelaFuncionario extends JFrame {
 		txtId.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCadastrar.setBackground(Color.DARK_GRAY);
 		btnCadastrar.setForeground(Color.WHITE);
@@ -321,6 +323,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.setBackground(Color.DARK_GRAY);
 		btnAlterar.setForeground(Color.WHITE);
@@ -335,6 +338,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExcluir.setBackground(Color.DARK_GRAY);
 		btnExcluir.setForeground(Color.WHITE);
@@ -349,6 +353,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLimpar.setBackground(Color.DARK_GRAY);
 		btnLimpar.setForeground(Color.WHITE);
@@ -368,6 +373,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
@@ -397,42 +403,49 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(txtFiltro);
 		
 		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnNome.setForeground(Color.WHITE);
 		rdbtnNome.setBackground(Color.DARK_GRAY);
 		rdbtnNome.setBounds(1608, 291, 109, 23);
 		contentPane.add(rdbtnNome);
 		
 		JRadioButton rdbtnTelefone = new JRadioButton("Telefone");
+		rdbtnTelefone.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnTelefone.setForeground(Color.WHITE);
 		rdbtnTelefone.setBackground(Color.DARK_GRAY);
 		rdbtnTelefone.setBounds(1608, 324, 109, 23);
 		contentPane.add(rdbtnTelefone);
 		
 		JRadioButton rdbtnCargo = new JRadioButton("Cargo");
+		rdbtnCargo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnCargo.setForeground(Color.WHITE);
 		rdbtnCargo.setBackground(Color.DARK_GRAY);
 		rdbtnCargo.setBounds(1608, 365, 109, 23);
 		contentPane.add(rdbtnCargo);
 		
 		JRadioButton rdbtnSalario = new JRadioButton("Salario");
+		rdbtnSalario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnSalario.setForeground(Color.WHITE);
 		rdbtnSalario.setBackground(Color.DARK_GRAY);
 		rdbtnSalario.setBounds(1608, 405, 109, 23);
 		contentPane.add(rdbtnSalario);
 		
 		JRadioButton rdbtnCPF = new JRadioButton("CPF");
+		rdbtnCPF.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnCPF.setForeground(Color.WHITE);
 		rdbtnCPF.setBackground(Color.DARK_GRAY);
 		rdbtnCPF.setBounds(1608, 445, 109, 23);
 		contentPane.add(rdbtnCPF);
 		
 		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnID.setForeground(Color.WHITE);
 		rdbtnID.setBackground(Color.DARK_GRAY);
 		rdbtnID.setBounds(1608, 250, 109, 23);
 		contentPane.add(rdbtnID);
 		
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnTodos.setSelected(true);
 		rdbtnTodos.setForeground(Color.WHITE);
 		rdbtnTodos.setBackground(Color.DARK_GRAY);
@@ -440,6 +453,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.add(rdbtnTodos);
 	
 		JButton btnNewButton_1 = new JButton("Filtrar");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnID.isSelected()) {

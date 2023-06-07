@@ -26,6 +26,7 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.UIManager;
 import java.awt.Color;
+import java.awt.Cursor;
 
 public class TabelaCliente extends JFrame {
 
@@ -86,6 +87,7 @@ public class TabelaCliente extends JFrame {
 		}
 		
 		JButton btnNewButton_1 = new JButton("Selecionar");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,6 +115,7 @@ public class TabelaCliente extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

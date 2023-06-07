@@ -30,6 +30,7 @@ import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Insets;
+import java.awt.Cursor;
 
 public class TelaVenda extends JFrame {
 
@@ -45,6 +46,7 @@ public class TelaVenda extends JFrame {
 
 	private Pedido pedidoSelecionado;
 	private Cliente clienteSelecionado;
+	private JTextField txtTotal;
 	/**
 	 * Launch the application.
 	 */
@@ -107,7 +109,7 @@ public class TelaVenda extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Numero do Pedido", "Sabor", "Cliente", "Valor (R$)"
+				"Numero do Pedido", "Sabor", "Tamanho", "Cliente", "Valor (R$)"
 			}
 		);
 		tabelaVenda.setModel(model);
@@ -132,6 +134,7 @@ public class TelaVenda extends JFrame {
 		contentPane.add(txtIdPedido);
 		
 		JButton btnPesquisarPedido = new JButton("Pesquisar");
+		btnPesquisarPedido.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPesquisarPedido.setForeground(Color.WHITE);
 		btnPesquisarPedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -231,6 +234,7 @@ public class TelaVenda extends JFrame {
 		contentPane.add(txtIdCliente);
 		
 		JButton btnPesquisarCliente = new JButton("Pesquisar");
+		btnPesquisarCliente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPesquisarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TabelaCliente TC = new TabelaCliente(tv);
@@ -262,6 +266,7 @@ public class TelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_2_1);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAdicionar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAdicionar.setForeground(Color.WHITE);
 		btnAdicionar.setBackground(Color.DARK_GRAY);
@@ -270,7 +275,7 @@ public class TelaVenda extends JFrame {
 			if (pedidoSelecionado != null) {
 				for (int i = 0; i < 1; i++) {
 					model.addRow(new Object[] {
-							pedidoSelecionado.getId(), pedidoSelecionado.getSabor(), clienteSelecionado.getNomeCliente(), pedidoSelecionado.getPreco()
+							pedidoSelecionado.getId(), pedidoSelecionado.getSabor(), pedidoSelecionado.getTamanho(), clienteSelecionado.getNomeCliente(), pedidoSelecionado.getPreco()
 					});
 				
 					tabelaVenda.setModel(model);
@@ -280,13 +285,18 @@ public class TelaVenda extends JFrame {
 			} else {
 				JOptionPane.showMessageDialog(null, "Nenhum pedido selecionado!");
 			}
-				
+			double somaTotal=0;
+
+			for(int i=0; i<tabelaVenda.getRowCount();i++)
+				somaTotal += Double.parseDouble(tabelaVenda.getValueAt(i, 4).toString());
+			txtTotal.setText(String.valueOf(somaTotal));
 			}
 		});
 		btnAdicionar.setBounds(742, 830, 157, 37);
 		contentPane.add(btnAdicionar);
 		
 		JButton btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnFinalizar.setForeground(Color.WHITE);
 		btnFinalizar.setBackground(Color.DARK_GRAY);
@@ -296,9 +306,9 @@ public class TelaVenda extends JFrame {
 					String idCliente = txtIdCliente.getText();
 					String idPedido = (tabelaVenda.getValueAt(i, 0).toString());
 					String sabor = (tabelaVenda.getValueAt(i, 1).toString());
-					String tamanho = txtTamanho.getText();
-					String nome = (tabelaVenda.getValueAt(i, 2).toString());
-					String preco = (tabelaVenda.getValueAt(i, 3).toString());
+					String tamanho = (tabelaVenda.getValueAt(i,2).toString());
+					String nome = (tabelaVenda.getValueAt(i, 3).toString());
+					String preco = (tabelaVenda.getValueAt(i, 4).toString());
 					String bebida = txtBebida.getText();
 					DateTimeFormatter dtf5 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 					String h =(dtf5.format(LocalDateTime.now()));
@@ -335,10 +345,11 @@ public class TelaVenda extends JFrame {
 				txtNome.setText("");
 			}
 		});
-		btnFinalizar.setBounds(1044, 830, 157, 37);
+		btnFinalizar.setBounds(1129, 830, 157, 37);
 		contentPane.add(btnFinalizar);
 		
 		JButton btnHistorico = new JButton("Historico");
+		btnHistorico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHistorico.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnHistorico.setForeground(Color.WHITE);
 		btnHistorico.setBackground(Color.DARK_GRAY);
@@ -408,7 +419,19 @@ public class TelaVenda extends JFrame {
 		lblNewLabel_1.setBounds(1571, 80, 252, 170);
 		contentPane.add(lblNewLabel_1);
 		
+		JLabel lblTotalPagar = new JLabel("Valor à pagar:");
+		lblTotalPagar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTotalPagar.setBounds(909, 841, 96, 14);
+		contentPane.add(lblTotalPagar);
 		
+		txtTotal = new JTextField();
+		txtTotal.setBorder(null);
+		txtTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
+		txtTotal.setBackground(Color.LIGHT_GRAY);
+		txtTotal.setEditable(false);
+		txtTotal.setBounds(1001, 836, 86, 25);
+		contentPane.add(txtTotal);
+		txtTotal.setColumns(10);
 		
 	}
 }
