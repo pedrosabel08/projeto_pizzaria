@@ -402,6 +402,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(rdbtnID);
 		
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setSelected(true);
 		rdbtnTodos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnTodos.setForeground(Color.WHITE);
 		rdbtnTodos.setBackground(Color.DARK_GRAY);
