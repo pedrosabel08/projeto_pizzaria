@@ -24,6 +24,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.border.MatteBorder;
 import java.awt.Insets;
+import java.awt.Cursor;
 
 public class TelaLogin extends JFrame {
 
@@ -106,6 +107,7 @@ public class TelaLogin extends JFrame {
 		panel.add(txtSenha);
 		
 		JButton btnContinuar = new JButton("Continuar");
+		btnContinuar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnContinuar.setBounds(34, 247, 116, 30);
 		panel.add(btnContinuar);
 		btnContinuar.setForeground(Color.WHITE);

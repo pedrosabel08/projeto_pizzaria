@@ -27,6 +27,7 @@ import java.awt.Font;
 import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
+import java.awt.Cursor;
 
 public class TabelaPedido extends JFrame {
 
@@ -87,6 +88,7 @@ public class TabelaPedido extends JFrame {
 		tbPedido.setModel(modelo);
 		
 		JButton btnNewButton_1 = new JButton("Selecionar");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,6 +116,7 @@ public class TabelaPedido extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

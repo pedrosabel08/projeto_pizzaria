@@ -32,6 +32,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import java.awt.Insets;
+import java.awt.Cursor;
 
 public class TelaProduto extends JFrame {
 
@@ -257,6 +258,7 @@ public class TelaProduto extends JFrame {
 		txtID.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCadastrar.setBackground(Color.DARK_GRAY);
 		btnCadastrar.setForeground(Color.WHITE);
@@ -271,6 +273,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.setBackground(Color.DARK_GRAY);
 		btnAlterar.setForeground(Color.WHITE);
@@ -285,6 +288,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExcluir.setBackground(Color.DARK_GRAY);
 		btnExcluir.setForeground(Color.WHITE);
@@ -299,6 +303,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLimpar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLimpar.setBackground(Color.DARK_GRAY);
 		btnLimpar.setForeground(Color.WHITE);
@@ -318,6 +323,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial frame = new TelaInicial();
@@ -361,42 +367,49 @@ public class TelaProduto extends JFrame {
 		
 		
 		JRadioButton rdbtnNome = new JRadioButton("Nome");
+		rdbtnNome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnNome.setForeground(Color.WHITE);
 		rdbtnNome.setBackground(Color.DARK_GRAY);
 		rdbtnNome.setBounds(1553, 354, 109, 23);
 		contentPane.add(rdbtnNome);
 		
 		JRadioButton rdbtnPreco = new JRadioButton("Preco");
+		rdbtnPreco.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPreco.setForeground(Color.WHITE);
 		rdbtnPreco.setBackground(Color.DARK_GRAY);
 		rdbtnPreco.setBounds(1553, 396, 109, 23);
 		contentPane.add(rdbtnPreco);
 		
 		JRadioButton rdbtnQuantidade = new JRadioButton("Quantidade");
+		rdbtnQuantidade.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnQuantidade.setForeground(Color.WHITE);
 		rdbtnQuantidade.setBackground(Color.DARK_GRAY);
 		rdbtnQuantidade.setBounds(1553, 441, 109, 23);
 		contentPane.add(rdbtnQuantidade);
 		
 		JRadioButton rdbtnFornecedor = new JRadioButton("Fornecedor");
+		rdbtnFornecedor.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnFornecedor.setForeground(Color.WHITE);
 		rdbtnFornecedor.setBackground(Color.DARK_GRAY);
 		rdbtnFornecedor.setBounds(1553, 480, 109, 23);
 		contentPane.add(rdbtnFornecedor);
 		
 		JRadioButton rdbtnID = new JRadioButton("ID");
+		rdbtnID.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnID.setForeground(Color.WHITE);
 		rdbtnID.setBackground(Color.DARK_GRAY);
 		rdbtnID.setBounds(1553, 309, 109, 23);
 		contentPane.add(rdbtnID);
 		
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
+		rdbtnTodos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnTodos.setForeground(Color.WHITE);
 		rdbtnTodos.setBackground(Color.DARK_GRAY);
 		rdbtnTodos.setBounds(1553, 268, 109, 23);
 		contentPane.add(rdbtnTodos);
 		
 		JButton btnFiltrar = new JButton("Filtrar");
+		btnFiltrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFiltrar.setForeground(Color.WHITE);
 		btnFiltrar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnFiltrar.setBackground(Color.DARK_GRAY);

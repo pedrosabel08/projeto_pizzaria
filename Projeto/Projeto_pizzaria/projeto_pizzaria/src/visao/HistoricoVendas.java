@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
+import java.awt.Cursor;
 
 
 public class HistoricoVendas extends JFrame {
@@ -83,6 +84,7 @@ public class HistoricoVendas extends JFrame {
 
 		tbVendas.setModel(modelo);
 		JButton btnFechar = new JButton("Voltar");
+		btnFechar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFechar.setForeground(Color.WHITE);
 		btnFechar.setBackground(Color.DARK_GRAY);
 		btnFechar.addActionListener(new ActionListener() {
@@ -97,18 +99,21 @@ public class HistoricoVendas extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Valor Total:");
 		lblNewLabel_4.setForeground(Color.WHITE);
 		lblNewLabel_4.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
-		lblNewLabel_4.setBounds(333, 266, 89, 14);
+		lblNewLabel_4.setBounds(333, 262, 74, 18);
 		contentPane.add(lblNewLabel_4);
 		
 		txtTotal = new JTextField();
+		txtTotal.setBorder(null);
+		txtTotal.setForeground(Color.WHITE);
 		txtTotal.setEditable(false);
-		txtTotal.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
+		txtTotal.setFont(new Font("Yu Gothic UI", Font.BOLD, 13));
 		txtTotal.setColumns(10);
-		txtTotal.setBackground(Color.WHITE);
-		txtTotal.setBounds(432, 263, 86, 20);
+		txtTotal.setBackground(Color.BLACK);
+		txtTotal.setBounds(404, 262, 86, 18);
 		contentPane.add(txtTotal);
 		
 		JButton btnTotal = new JButton("Total");
+		btnTotal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnTotal.setForeground(Color.WHITE);
 		btnTotal.setBackground(Color.DARK_GRAY);
 		btnTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
