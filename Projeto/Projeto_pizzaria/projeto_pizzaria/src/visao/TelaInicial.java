@@ -1,7 +1,7 @@
 package visao;
 
 import java.awt.EventQueue;
-
+import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,9 +11,12 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import java.awt.Font;
@@ -66,10 +69,20 @@ public class TelaInicial extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new MatteBorder(0, 0, 5, 5, (Color) new Color(204, 102, 0)));
 		panel_1.setBackground(new Color(255, 204, 102));
+		
+		JButton btnNewButton = new JButton("Trocar de Conta");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				confirmarTrocarConta();
+			}
+		});
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(188)
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
@@ -78,11 +91,17 @@ public class TelaInicial extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(5)
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 1485, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnNewButton)
+					.addContainerGap(1391, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(67)
+					.addContainerGap()
+					.addComponent(btnNewButton)
+					.addGap(33)
 					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -177,8 +196,9 @@ public class TelaInicial extends JFrame {
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				confirmarFecharSistema();
 			}
+			
 		});
 		btnFechar.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		btnFechar.setBackground(Color.DARK_GRAY);
@@ -218,6 +238,23 @@ public class TelaInicial extends JFrame {
 					.addContainerGap(75, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
-		contentPane.setLayout(gl_contentPane);
+		contentPane.setLayout(gl_contentPane);}
+		
+	    private void confirmarFecharSistema() {
+	        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente fechar o sistema?", "Confirmação", JOptionPane.YES_NO_OPTION);
+	        if (opcao == JOptionPane.YES_OPTION) {
+	            dispose();
+	            System.exit(0);
+	        }
+	    }
+	    private void confirmarTrocarConta() {
+	        int opcao = JOptionPane.showConfirmDialog(this, "Deseja realmente trocar de conta?", "Confirmação", JOptionPane.YES_NO_OPTION);
+	        if (opcao == JOptionPane.YES_OPTION) {
+	        	dispose();
+	            TelaLogin frame = new TelaLogin();
+	            frame.setLocationRelativeTo(null);
+	            frame.setVisible(true);
+	        }
+	    }
 	}
-}
+
